@@ -271,6 +271,27 @@ def createAsset(server, token, Divice, ID):
         #print(results)
         return json.dumps(results.json(),indent=4, separators=(',', ':'))
 
+
+def deleteAsset(server, token, id):
+        """Delete an asset
+        
+        Arguments:
+            server {string} -- Server URI
+            token {string} -- Token value to be used for accessing the API
+            id {string} -- Asset ID to be deleted
+        """
+        uri = '/api/v1/hardware/'+str(id)
+        server = server + uri
+        headers = {'Authorization': 'Bearer {0}'.format(token)}
+        results = requests.delete(server, headers=headers)
+        global requestcounter
+        requestcounter += 1
+        if(requestcounter > MaxCounter):
+            print("Request Counter: " + str(requestcounter) + " - Pausing for 60 seconds to avoid rate limit...")
+            time.sleep(60)
+            requestcounter = 0
+        return json.dumps(results.json(),indent=4, separators=(',', ':'))
+
 def auditAsse123t(server, token, assetTag):
         global requestcounter
         """Audit an asset
