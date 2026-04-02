@@ -33,13 +33,9 @@ def get_Filedata(file):
         data = next(reader)   # ✅ get first row
     return Titles, data
 
-#data = csv.reader(data)
 
-#data = list(data)
-#data = data.split(",")
-#Titles = Titles.split(",")
 TypesofTest = ['VISUAL', 'RPE', 'RINS', 'L,N-condition', 'IPE', 'FUNCTION']
-#exit()
+
 diviceList = {}
 dupesdiviceList = {}
 lastdisc = 0
