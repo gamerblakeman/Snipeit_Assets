@@ -1,8 +1,6 @@
 import json
 import requests
 import time
-serverURI = "http://localhost:80"
-key = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZmY0NzVkYWU3Nzc2YTM5YWNjNWNjZjNiMTFmM2YwMGVjZjI0M2E4N2RiZWRkYWYxZGNlYzA4OTQ0MWZiOGI1ZDcyNWM5NWU1N2Q2YWZlYzAiLCJpYXQiOjE3NzM0MTczOTkuNjY5MTAzLCJuYmYiOjE3NzM0MTczOTkuNjY5MTA2LCJleHAiOjMwMzU3MjEzOTkuNjYzMzk4LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.mNyobe6Qc-epOdY2H1BFshG0GtdVg6XfYE7VVFBlTYzjUkA4Cf3lIMAGce_9egXiToVU2c4lXDtrtdxJuheDxhPiVp3UlDsF_ZzC6efDzNwL-JyPfBdQW0L92FgvJxFJoDva8wDihFTM0gYuW09uRGcg2SzhdkYuJgKIQJuMMsnqOnLkRO0LM6QA_bguMf_m_a19UeckD-FazY9SVEV7lTCukhP6VniOROToiXWzS5CJmQalsPCJRSlb7E_ZubI-QBP3YGEK6ao4x5Wh166KU3deeOX3TVZzsxDg21Q3JANow_nAEsdc35mXk1W_jKdC3bLUnP-79Rq2npxxvPku6H7P0d0nXXM7zpThxYHdFRzHcuByfd_URRWGm7-yHxlJQ0JW_2uE0exw3jme68betX8HKlCjicikktb99-Ybdd9PF9H52i20JTIgIx4wNhnQ2RtzlGmz5nks-BiICt-XOod2w6ij7HxX2B4IrUIHp_tf-CqB-btMjPQ4v0kwD-FiWHtpEmi7v38jj97uZkW2IkjzGzOoTSlHm9nP7C4DdL7GxVBhMHJVbkRpgxCH19ZkGYghgz7NiSo2ztvbkKTHmkCUmmiPINe-wYxmPTWDF2rukj81xq73lIJEPxkwD-ZvfX-HEauufOIhW8gKKogIaw5VCLYHLck7mVk9jxrtFMc"
 requestcounter = 0
 MaxCounter = 1980
 def create(server, token, payload):
@@ -123,7 +121,7 @@ def auditAsset(server, token, assetTag=None, locationID=None):
 #     --header 'content-type: application/json' \
 #     --data '{"asset_tag":"4063"}'
 
-def Update(ID, dataIn, Date):
+def Update(ID, dataIn, Date,serverURI,key):
     global requestcounter
     print("Request Counter: " + str(requestcounter))
     data = getDetailsByTag(serverURI, key, ID)
@@ -143,7 +141,7 @@ def Update(ID, dataIn, Date):
     #auditAsset(serverURI, key, str(ID))
 
 
-def update_SnipeIT(diviceList, testtypes):
+def update_SnipeIT(diviceList, testtypes,serverURI, key):
 
     for i in diviceList:
         print("-----------\nWorking on " + i + ": ")
@@ -165,4 +163,4 @@ def update_SnipeIT(diviceList, testtypes):
                 #print("Not Found")
         print("Updating Snipe-IT ID: " + i + "  and date: " + divice["Date"] + " with the following data:\n" + outData)
         #print(divice["Date"])
-        Update(i, outData, divice["Date"])
+        Update(i, outData, divice["Date"],serverURI,key)

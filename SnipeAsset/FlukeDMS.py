@@ -7,8 +7,6 @@
 
 from modulefinder import test
 import re
-import pprint
-pp = pprint.PrettyPrinter(indent=4)
 
 tester = None
 serial = None
