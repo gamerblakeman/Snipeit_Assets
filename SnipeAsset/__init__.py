@@ -443,14 +443,14 @@ class SnipeITAsset:
                 if(self.assets[a]['model'] != self.Appliances[a]['itemtype_ID']):
                     print(f"Model mismatch for appliance {a}, updating model in SnipeIT...")
                     print(updateAssetModdel(self.snipeITUrl,self.apiKey, self.assets[a]['id'], self.Appliances[a]['itemtype_ID'], a))
-                    input("Press enter to continue...")
+                    #input("Press enter to continue...")
                 continue
             else:
                 print(f"Appliance {a} not found in SnipeIT, creating new entry...")
                 print(self.Appliances[a])
-                input()
+                #input()
                 print(createAsset(self.snipeITUrl,self.apiKey, self.Appliances[a], a))
-                input("Press enter to continue...")
+                #input("Press enter to continue...")
         pass
         
     def maintenanceCreate(self):
