@@ -1,3 +1,10 @@
+# -----------------------------------------------------------------------------
+# The following code is adapted from Rob P
+# Source: https://github.com/rphi/flukeparse
+# License: MIT
+# Changes made: the code has been modified to fit the needs of this project, and may not be fully compatible with the original code.
+# -----------------------------------------------------------------------------
+
 from modulefinder import test
 import re
 import pprint
@@ -51,7 +58,7 @@ class flukeTest:
         test = test[1:]
       
       elif 'APP NO' in test[0]:
-        obj['appno'] = re.findall(r'APP NO +([a-zA-Z0-9]+)\s*', test[0])[0]
+        obj['appno'] = str(int(re.findall(r'APP NO +([a-zA-Z0-9]+)\s*', test[0])[0]))
         test = test[1:]
       
       elif 'TEST MODE' in test[0]:

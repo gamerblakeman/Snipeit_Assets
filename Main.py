@@ -22,7 +22,7 @@ faild_ID = []
 emptycount = 0
 ignore_Types = ['lblClientInformation', 'lblClientName', 'lblClientStreet', 'txtClientName', 'txtClientStreet', 'lblClientCityZipCode', 'lblClientCountry', 'txtClientCityZipCode', 'txtClientCountry', 'lblTestInformation', 'lblCOntractor', 'txtContractor', 'txtContractorAddress', 'txtReportTitle', 'lblOnDate', 'txtDate', 'lblSummary', 'lblTotalAppliances', 'lblPassedAppliances', 'lblFailedAppliances', '', 'txtApplianceName', 'txtApplianceDate', 'txtApplianceInterval', 'txtApplianceCode', 'txtApplianceResult', 'txtTestStepName', 'txtTestStepLimit', 'txtTestStepMeasurement', 'txtTestStepResult']
 learn = {}
-from csvimport import addCSV
+
 requestcounter = 0
 
 def get_Filedata(file):

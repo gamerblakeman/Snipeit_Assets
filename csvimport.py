@@ -1,12 +1,12 @@
 #!/bin/env python36
-import csv, requests, json, logging, pprint
-from sys import exit
-
+import csv, requests, json, logging, configparser, pprint, copy
+from sys import exit, exc_info
+from optparse import OptionParser,OptionGroup
+from os import access,R_OK
 global snipemodels
-logger = logging.getLogger()
-dryrun = False
+
 def patch(snipeid, item, data, header):
-     if dryrun is True:
+     if options.dryrun is True:
          logger.info(f"Dry run: Would have tried to update Snipe asset number {snipeid}, field {str(item)} with {str(data)}")
          return 0
      payload = "{\"%s\":\"%s\"}" % (str(item), str(data))
@@ -24,7 +24,6 @@ def patch(snipeid, item, data, header):
          return 1
 
 def sniperequest(URL, QUERYSTRING, header):
-   global SNIPE_URL, API_TOKEN
    try: id = requests.request("GET", URL, headers=header, params=QUERYSTRING) 
    except requests.exceptions.RequestException as e:
        logger.error("Error connecting to Snipe: %s" % e)
@@ -38,7 +37,6 @@ def sniperequest(URL, QUERYSTRING, header):
    return(js)
 
 def update(row, js, fields, snipeid, header):
-    global SNIPE_URL, API_TOKEN
     builtins = {'Name':'name','Asset Tag':'asset_tag','Serial':'serial','Warranty Months':'warranty_months','Order Number':'order_number','Purchase Cost':'purchase cost','Purchase Date':'purchase_date','Notes':'notes'}
     for entry in fields:
 # Blank CSV entries should be set to None as that's what Snipe returns for empty fields
@@ -94,21 +92,45 @@ def update(row, js, fields, snipeid, header):
         else:
             logger.error(f"Couldn't find {entry} in Snipe-IT fields")
 
-def addCSV(url, token, file):
+if __name__ == "__main__":
 # Logger setup
-    global SNIPE_URL, API_TOKEN, snipefields
     logformatter = logging.Formatter(fmt='[%(asctime)-15s %(levelname)6s] %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
+    logger = logging.getLogger()
     streamhandler = logging.StreamHandler()
     streamhandler.setFormatter(logformatter)
     logger.addHandler(streamhandler)
 
-    logger.setLevel(logging.INFO)
-    SNIPE_URL = url
-    API_TOKEN = token
+    parser = OptionParser(usage = "usage: %prog [options] -f FILE")
+    parser.add_option("-v", "--verbose", dest="verbose", action="store_true", default=False, help="set verbosity level")
+    parser.add_option("-d", "--dry-run", dest="dryrun", action="store_true", default=False, help="run without executing changes")
+    parser.add_option("-o", "--overwrite", dest="overwrite", action="store_true", default=False, help="overwrite in case of multiple entries")
+    parser.add_option("-i", "--inifile", dest="inifile", help="File containing configuration data (default: config.ini)")
+    group = OptionGroup(parser, "Required Options")
+    group.add_option("-f", "--file", dest="file", help="CSV file to read data from", metavar="FILE")
+    parser.add_option_group(group)
+    (options, args) = parser.parse_args()
 
+    config = configparser.ConfigParser()
+    config['DEFAULT'] = { 'SNIPE_URL': "https://your_snipe_url/",
+                      'API_TOKEN': "YOUR_SNIPE_API_TOKEN_HERE" }
+    if options.file is None:
+        parser.print_help()
+        print("\r\nERROR: No CSV file supplied")
+        exit(1)
+    if options.inifile is not None:
+        if access(options.inifile, R_OK) is not False:
+            config.read(options.inifile)
+        else: 
+            print(f"ERROR: cannot read INI file: {options.inifile}")
+            exit(1)
+    else: config.read("config.ini")
+    SNIPE_URL = config['DEFAULT']['SNIPE_URL']
+    API_TOKEN = config['DEFAULT']['API_TOKEN']
 
-
-
+    if options.verbose is True:
+        logger.setLevel(logging.DEBUG)
+    else:
+        logger.setLevel(logging.INFO)
     header = {'Authorization': "Bearer " + API_TOKEN, 'Accept': "application/json", 'Content-type':"application/json" }
 # Build dictionary of Snipe internal fields
     js = sniperequest(SNIPE_URL + "/api/v1/fieldsets", {"search":""}, header)
@@ -142,7 +164,7 @@ def addCSV(url, token, file):
         snipemodels.update({item['name']:item['id']})
 
     try:
-        with open(file) as csv_file:
+        with open(options.file) as csv_file:
             csv_reader = csv.DictReader(csv_file)
             if 'Item Name' not in csv_reader.fieldnames:
                 logger.error("CSV file must include 'Item Name' column for lookup in Snipe-IT.")
@@ -164,7 +186,7 @@ def addCSV(url, token, file):
 # Multiple entries in Snipe for same item
                 elif js['total'] > 1:
                     buf = ','.join(item['name'] + " (" + item['asset_tag'] + ")" for item in js['rows'])
-                    if False is False:
+                    if options.overwrite is False:
                         logger.error(f"Skipping due to multiple entries for {row['Item Name']}: {buf}")
                         continue
                     else:

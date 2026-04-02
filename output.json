@@ -1,5 +1,5 @@
 {
-    "00255": {
+    "255": {
         "user": "James B",
         "date": "11-AUG-25",
         "testnum": "1",
@@ -36,7 +36,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00277": {
+    "277": {
         "user": "James B",
         "date": "11-AUG-25",
         "testnum": "2",
@@ -73,7 +73,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00264": {
+    "264": {
         "user": "James B",
         "date": "11-AUG-25",
         "testnum": "3",
@@ -110,7 +110,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00363": {
+    "363": {
         "user": "James B",
         "date": "11-AUG-25",
         "testnum": "4",
@@ -147,7 +147,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00339": {
+    "339": {
         "user": "James B",
         "date": "11-AUG-25",
         "testnum": "5",
@@ -221,7 +221,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00314": {
+    "314": {
         "user": "James B",
         "date": "11-AUG-25",
         "testnum": "7",
@@ -258,7 +258,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00251": {
+    "251": {
         "user": "James B",
         "date": "11-AUG-25",
         "testnum": "8",
@@ -295,7 +295,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00321": {
+    "321": {
         "user": "James B",
         "date": "11-AUG-25",
         "testnum": "9",
@@ -332,7 +332,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00284": {
+    "284": {
         "user": "James B",
         "date": "11-AUG-25",
         "testnum": "10",
@@ -369,12 +369,12 @@
         },
         "OverallResult": "Pass"
     },
-    "03443": {
-        "user": "James B",
-        "date": "11-AUG-25",
-        "testnum": "36",
-        "testmode": "102 AUTO",
-        "itemtype": "13A EXTENSION",
+    "3443": {
+        "user": "Penny",
+        "date": "18-AUG-25",
+        "testnum": "396",
+        "testmode": "101 AUTO",
+        "itemtype": "13A EXTENSION REEL",
         "location": "4067",
         "Result": {
             "Visual": "P",
@@ -382,12 +382,12 @@
                 "continuity": "P",
                 "earth": "0.15 OHM",
                 "earthpass": "P",
-                "earthlimit": "0.30 OHM"
+                "earthlimit": "0.20 OHM"
             }
         },
         "OverallResult": "Pass"
     },
-    "00687": {
+    "687": {
         "user": "James B",
         "date": "11-AUG-25",
         "testnum": "12",
@@ -424,7 +424,7 @@
         },
         "OverallResult": "Pass"
     },
-    "03220": {
+    "3220": {
         "user": "James B",
         "date": "11-AUG-25",
         "testnum": "13",
@@ -461,7 +461,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00517": {
+    "517": {
         "user": "James B",
         "date": "11-AUG-25",
         "testnum": "14",
@@ -498,7 +498,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00247": {
+    "247": {
         "user": "James B",
         "date": "11-AUG-25",
         "testnum": "15",
@@ -535,7 +535,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00308": {
+    "308": {
         "user": "James B",
         "date": "11-AUG-25",
         "testnum": "16",
@@ -572,7 +572,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00514": {
+    "514": {
         "user": "James B",
         "date": "11-AUG-25",
         "testnum": "17",
@@ -609,7 +609,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00550": {
+    "550": {
         "user": "James B",
         "date": "11-AUG-25",
         "testnum": "18",
@@ -646,7 +646,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00947": {
+    "947": {
         "user": "James B",
         "date": "11-AUG-25",
         "testnum": "19",
@@ -683,7 +683,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00348": {
+    "348": {
         "user": "James B",
         "date": "11-AUG-25",
         "testnum": "20",
@@ -720,7 +720,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00692": {
+    "692": {
         "user": "James B",
         "date": "11-AUG-25",
         "testnum": "21",
@@ -757,7 +757,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00279": {
+    "279": {
         "user": "James B",
         "date": "11-AUG-25",
         "testnum": "22",
@@ -794,7 +794,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00256": {
+    "256": {
         "user": "James B",
         "date": "11-AUG-25",
         "testnum": "23",
@@ -831,7 +831,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00342": {
+    "342": {
         "user": "James B",
         "date": "11-AUG-25",
         "testnum": "24",
@@ -868,7 +868,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00258": {
+    "258": {
         "user": "James B",
         "date": "11-AUG-25",
         "testnum": "25",
@@ -905,7 +905,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00346": {
+    "346": {
         "user": "James B",
         "date": "11-AUG-25",
         "testnum": "26",
@@ -942,7 +942,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00283": {
+    "283": {
         "user": "James B",
         "date": "11-AUG-25",
         "testnum": "27",
@@ -979,7 +979,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00238": {
+    "238": {
         "user": "James B",
         "date": "11-AUG-25",
         "testnum": "28",
@@ -1016,7 +1016,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00269": {
+    "269": {
         "user": "James B",
         "date": "11-AUG-25",
         "testnum": "29",
@@ -1053,7 +1053,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00263": {
+    "263": {
         "user": "James B",
         "date": "11-AUG-25",
         "testnum": "30",
@@ -1090,7 +1090,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00329": {
+    "329": {
         "user": "James B",
         "date": "11-AUG-25",
         "testnum": "31",
@@ -1127,7 +1127,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00334": {
+    "334": {
         "user": "James B",
         "date": "11-AUG-25",
         "testnum": "32",
@@ -1164,7 +1164,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00259": {
+    "259": {
         "user": "James B",
         "date": "11-AUG-25",
         "testnum": "33",
@@ -1201,7 +1201,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00248": {
+    "248": {
         "user": "James B",
         "date": "11-AUG-25",
         "testnum": "34",
@@ -1238,7 +1238,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00262": {
+    "262": {
         "user": "James B",
         "date": "11-AUG-25",
         "testnum": "35",
@@ -1275,7 +1275,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00246": {
+    "246": {
         "user": "James B",
         "date": "11-AUG-25",
         "testnum": "37",
@@ -1312,7 +1312,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00271": {
+    "271": {
         "user": "James B",
         "date": "11-AUG-25",
         "testnum": "38",
@@ -1367,7 +1367,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00372": {
+    "372": {
         "user": "James B",
         "date": "12-AUG-25",
         "testnum": "40",
@@ -1404,7 +1404,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00288": {
+    "288": {
         "user": "James B",
         "date": "12-AUG-25",
         "testnum": "41",
@@ -1441,7 +1441,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00270": {
+    "270": {
         "user": "James B",
         "date": "12-AUG-25",
         "testnum": "42",
@@ -1478,7 +1478,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00311": {
+    "311": {
         "user": "James B",
         "date": "12-AUG-25",
         "testnum": "43",
@@ -1515,7 +1515,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00302": {
+    "302": {
         "user": "James B",
         "date": "12-AUG-25",
         "testnum": "44",
@@ -1552,7 +1552,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00261": {
+    "261": {
         "user": "James B",
         "date": "12-AUG-25",
         "testnum": "45",
@@ -1589,7 +1589,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00240": {
+    "240": {
         "user": "James B",
         "date": "12-AUG-25",
         "testnum": "46",
@@ -1626,7 +1626,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00275": {
+    "275": {
         "user": "James B",
         "date": "12-AUG-25",
         "testnum": "47",
@@ -1663,10 +1663,10 @@
         },
         "OverallResult": "Pass"
     },
-    "00331": {
-        "user": "James B",
-        "date": "12-AUG-25",
-        "testnum": "48",
+    "331": {
+        "user": "zoe",
+        "date": "17-DEC-25",
+        "testnum": "531",
         "testmode": "100 AUTO",
         "itemtype": "PAR 64",
         "location": "4067",
@@ -1674,7 +1674,7 @@
             "Visual": "P",
             "earthbond": {
                 "testcurrent": "25A",
-                "resistance": "0.02 OHM",
+                "resistance": "0.23 OHM",
                 "pass": "P",
                 "limit": "0.30 OHM"
             },
@@ -1682,13 +1682,13 @@
                 "testvoltage": "1   >299 MEG P"
             },
             "load": {
-                "load": "1025 VA",
+                "load": "1014 VA",
                 "pass": "P",
                 "limit": "3000 VA",
                 "pncontinuity": "P"
             },
             "current": {
-                "current": "4.3 A",
+                "current": "4.2 A",
                 "pass": "P",
                 "limit": "13.0 A"
             },
@@ -1754,7 +1754,7 @@
         },
         "OverallResult": "Pass"
     },
-    "05322": {
+    "5322": {
         "user": "James B",
         "date": "12-AUG-25",
         "testnum": "52",
@@ -1790,7 +1790,7 @@
         },
         "OverallResult": "Pass"
     },
-    "05264": {
+    "5264": {
         "user": "James B",
         "date": "12-AUG-25",
         "testnum": "54",
@@ -1808,7 +1808,7 @@
         },
         "OverallResult": "Pass"
     },
-    "01515": {
+    "1515": {
         "user": "James B",
         "date": "12-AUG-25",
         "testnum": "55",
@@ -1826,7 +1826,7 @@
         },
         "OverallResult": "Pass"
     },
-    "01845": {
+    "1845": {
         "user": "James B",
         "date": "12-AUG-25",
         "testnum": "56",
@@ -1844,7 +1844,7 @@
         },
         "OverallResult": "Pass"
     },
-    "02606": {
+    "2606": {
         "user": "James B",
         "date": "12-AUG-25",
         "testnum": "57",
@@ -1862,7 +1862,7 @@
         },
         "OverallResult": "Pass"
     },
-    "03333": {
+    "3333": {
         "user": "James B",
         "date": "12-AUG-25",
         "testnum": "58",
@@ -1880,7 +1880,7 @@
         },
         "OverallResult": "Pass"
     },
-    "09020": {
+    "9020": {
         "user": "James B",
         "date": "12-AUG-25",
         "testnum": "59",
@@ -1916,7 +1916,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00152": {
+    "152": {
         "user": "James B",
         "date": "12-AUG-25",
         "testnum": "61",
@@ -1934,7 +1934,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00289": {
+    "289": {
         "user": "James B",
         "date": "12-AUG-25",
         "testnum": "62",
@@ -1971,7 +1971,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00531": {
+    "531": {
         "user": "James B",
         "date": "12-AUG-25",
         "testnum": "63",
@@ -2008,7 +2008,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00293": {
+    "293": {
         "user": "James B",
         "date": "12-AUG-25",
         "testnum": "64",
@@ -2045,7 +2045,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00319": {
+    "319": {
         "user": "James B",
         "date": "12-AUG-25",
         "testnum": "65",
@@ -2136,7 +2136,7 @@
         },
         "OverallResult": "Pass"
     },
-    "02596": {
+    "2596": {
         "user": "James B",
         "date": "12-AUG-25",
         "testnum": "69",
@@ -2154,7 +2154,7 @@
         },
         "OverallResult": "Pass"
     },
-    "01833": {
+    "1833": {
         "user": "James B",
         "date": "12-AUG-25",
         "testnum": "70",
@@ -2208,7 +2208,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00345": {
+    "345": {
         "user": "James B",
         "date": "12-AUG-25",
         "testnum": "73",
@@ -2245,7 +2245,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00532": {
+    "532": {
         "user": "James B",
         "date": "12-AUG-25",
         "testnum": "74",
@@ -2282,7 +2282,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00273": {
+    "273": {
         "user": "James B",
         "date": "12-AUG-25",
         "testnum": "75",
@@ -2319,7 +2319,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00315": {
+    "315": {
         "user": "James B",
         "date": "12-AUG-25",
         "testnum": "76",
@@ -2356,7 +2356,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00974": {
+    "974": {
         "user": "James B",
         "date": "12-AUG-25",
         "testnum": "77",
@@ -2430,7 +2430,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00305": {
+    "305": {
         "user": "James B",
         "date": "12-AUG-25",
         "testnum": "79",
@@ -2467,7 +2467,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00292": {
+    "292": {
         "user": "James B",
         "date": "12-AUG-25",
         "testnum": "80",
@@ -2541,7 +2541,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00323": {
+    "323": {
         "user": "James B",
         "date": "12-AUG-25",
         "testnum": "82",
@@ -2578,7 +2578,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00320": {
+    "320": {
         "user": "James B",
         "date": "12-AUG-25",
         "testnum": "83",
@@ -2615,7 +2615,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00353": {
+    "353": {
         "user": "James B",
         "date": "12-AUG-25",
         "testnum": "84",
@@ -2652,7 +2652,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00975": {
+    "975": {
         "user": "James B",
         "date": "12-AUG-25",
         "testnum": "85",
@@ -2689,7 +2689,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00291": {
+    "291": {
         "user": "James B",
         "date": "12-AUG-25",
         "testnum": "86",
@@ -2726,7 +2726,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00286": {
+    "286": {
         "user": "James B",
         "date": "12-AUG-25",
         "testnum": "87",
@@ -2763,7 +2763,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00242": {
+    "242": {
         "user": "James B",
         "date": "12-AUG-25",
         "testnum": "88",
@@ -2800,7 +2800,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00300": {
+    "300": {
         "user": "James B",
         "date": "12-AUG-25",
         "testnum": "89",
@@ -2837,7 +2837,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00322": {
+    "322": {
         "user": "James B",
         "date": "12-AUG-25",
         "testnum": "90",
@@ -2874,10 +2874,10 @@
         },
         "OverallResult": "Pass"
     },
-    "00282": {
-        "user": "James B",
-        "date": "12-AUG-25",
-        "testnum": "91",
+    "282": {
+        "user": "zoe",
+        "date": "17-DEC-25",
+        "testnum": "532",
         "testmode": "100 AUTO",
         "itemtype": "PAR 64",
         "location": "4067",
@@ -2885,7 +2885,7 @@
             "Visual": "P",
             "earthbond": {
                 "testcurrent": "25A",
-                "resistance": "0.04 OHM",
+                "resistance": "0.03 OHM",
                 "pass": "P",
                 "limit": "0.30 OHM"
             },
@@ -2893,13 +2893,13 @@
                 "testvoltage": "1   >299 MEG P"
             },
             "load": {
-                "load": "1036 VA",
+                "load": "1016 VA",
                 "pass": "P",
                 "limit": "3000 VA",
                 "pncontinuity": "P"
             },
             "current": {
-                "current": "4.4 A",
+                "current": "4.2 A",
                 "pass": "P",
                 "limit": "13.0 A"
             },
@@ -2911,7 +2911,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00254": {
+    "254": {
         "user": "James B",
         "date": "12-AUG-25",
         "testnum": "92",
@@ -2948,7 +2948,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00354": {
+    "354": {
         "user": "James B",
         "date": "12-AUG-25",
         "testnum": "93",
@@ -2985,7 +2985,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00267": {
+    "267": {
         "user": "James B",
         "date": "12-AUG-25",
         "testnum": "94",
@@ -3022,7 +3022,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00972": {
+    "972": {
         "user": "James B",
         "date": "12-AUG-25",
         "testnum": "95",
@@ -3059,7 +3059,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00276": {
+    "276": {
         "user": "James B",
         "date": "12-AUG-25",
         "testnum": "96",
@@ -3096,7 +3096,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00328": {
+    "328": {
         "user": "James B",
         "date": "12-AUG-25",
         "testnum": "97",
@@ -3170,7 +3170,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00336": {
+    "336": {
         "user": "James B",
         "date": "12-AUG-25",
         "testnum": "99",
@@ -3207,7 +3207,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00347": {
+    "347": {
         "user": "James B",
         "date": "12-AUG-25",
         "testnum": "100",
@@ -3244,7 +3244,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00976": {
+    "976": {
         "user": "James B",
         "date": "12-AUG-25",
         "testnum": "101",
@@ -3281,7 +3281,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00281": {
+    "281": {
         "user": "James B",
         "date": "12-AUG-25",
         "testnum": "102",
@@ -3498,7 +3498,7 @@
         },
         "OverallResult": "Pass"
     },
-    "0260": {
+    "260": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "113",
@@ -5181,7 +5181,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00461": {
+    "461": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "159",
@@ -5218,7 +5218,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00476": {
+    "476": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "160",
@@ -5255,7 +5255,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00352": {
+    "352": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "161",
@@ -5292,7 +5292,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00463": {
+    "463": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "162",
@@ -5329,7 +5329,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00272": {
+    "272": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "163",
@@ -5366,7 +5366,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00543": {
+    "543": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "164",
@@ -5403,7 +5403,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00541": {
+    "541": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "165",
@@ -5440,7 +5440,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00572": {
+    "572": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "166",
@@ -5477,7 +5477,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00500": {
+    "500": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "167",
@@ -5514,7 +5514,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00502": {
+    "502": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "168",
@@ -5551,7 +5551,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00458": {
+    "458": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "169",
@@ -5606,7 +5606,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00557": {
+    "557": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "171",
@@ -5643,7 +5643,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00559": {
+    "559": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "172",
@@ -5680,7 +5680,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00489": {
+    "489": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "173",
@@ -5717,7 +5717,7 @@
         },
         "OverallResult": "Pass"
     },
-    "05266": {
+    "5266": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "174",
@@ -5735,7 +5735,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00490": {
+    "490": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "175",
@@ -5772,7 +5772,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00501": {
+    "501": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "176",
@@ -5809,7 +5809,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00497": {
+    "497": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "177",
@@ -5846,7 +5846,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00606": {
+    "606": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "178",
@@ -5883,7 +5883,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04972": {
+    "4972": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "179",
@@ -5901,7 +5901,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04970": {
+    "4970": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "180",
@@ -5919,7 +5919,7 @@
         },
         "OverallResult": "Pass"
     },
-    "03125": {
+    "3125": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "181",
@@ -5937,7 +5937,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00482": {
+    "482": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "182",
@@ -5974,7 +5974,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00475": {
+    "475": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "183",
@@ -6011,7 +6011,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00548": {
+    "548": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "184",
@@ -6048,7 +6048,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00486": {
+    "486": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "185",
@@ -6085,7 +6085,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00493": {
+    "493": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "186",
@@ -6122,7 +6122,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00481": {
+    "481": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "187",
@@ -6159,7 +6159,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00494": {
+    "494": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "188",
@@ -6196,7 +6196,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00488": {
+    "488": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "189",
@@ -6233,7 +6233,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00538": {
+    "538": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "190",
@@ -6270,7 +6270,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00503": {
+    "503": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "191",
@@ -6307,7 +6307,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00462": {
+    "462": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "192",
@@ -6344,10 +6344,10 @@
         },
         "OverallResult": "Pass"
     },
-    "00358": {
-        "user": "Penny",
-        "date": "13-AUG-25",
-        "testnum": "193",
+    "358": {
+        "user": "zoe",
+        "date": "12-FEB-26",
+        "testnum": "588",
         "testmode": "100 AUTO",
         "itemtype": "ETC SOURCE 4 - 26",
         "location": "4067",
@@ -6355,7 +6355,7 @@
             "Visual": "P",
             "earthbond": {
                 "testcurrent": "25A",
-                "resistance": "0.05 OHM",
+                "resistance": "0.03 OHM",
                 "pass": "P",
                 "limit": "0.30 OHM"
             },
@@ -6363,25 +6363,25 @@
                 "testvoltage": "1   >299 MEG P"
             },
             "load": {
-                "load": "798 VA",
+                "load": "772 VA",
                 "pass": "P",
                 "limit": "3000 VA",
                 "pncontinuity": "P"
             },
             "current": {
-                "current": "3.4 A",
+                "current": "3.2 A",
                 "pass": "P",
                 "limit": "13.0 A"
             },
             "leakage": {
-                "current": "0.04 mA",
+                "current": "0.05 mA",
                 "pass": "P",
                 "limit": "3.50 mA"
             }
         },
         "OverallResult": "Pass"
     },
-    "00918": {
+    "918": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "194",
@@ -6418,7 +6418,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00545": {
+    "545": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "195",
@@ -6455,7 +6455,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00982": {
+    "982": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "196",
@@ -6492,7 +6492,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00764": {
+    "764": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "197",
@@ -6529,7 +6529,7 @@
         },
         "OverallResult": "Pass"
     },
-    "0980": {
+    "980": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "198",
@@ -6566,7 +6566,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00782": {
+    "782": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "227",
@@ -6603,7 +6603,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00785": {
+    "785": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "224",
@@ -6640,7 +6640,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00777": {
+    "777": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "217",
@@ -6677,7 +6677,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00776": {
+    "776": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "222",
@@ -6714,7 +6714,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00960": {
+    "960": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "226",
@@ -6751,7 +6751,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00516": {
+    "516": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "204",
@@ -6788,7 +6788,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00511": {
+    "511": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "205",
@@ -6825,7 +6825,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00520": {
+    "520": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "206",
@@ -6862,7 +6862,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00522": {
+    "522": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "207",
@@ -6899,7 +6899,7 @@
         },
         "OverallResult": "Pass"
     },
-    "03254": {
+    "3254": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "208",
@@ -6936,7 +6936,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00519": {
+    "519": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "209",
@@ -6973,7 +6973,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00515": {
+    "515": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "210",
@@ -7010,7 +7010,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00509": {
+    "509": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "211",
@@ -7047,7 +7047,7 @@
         },
         "OverallResult": "Pass"
     },
-    "03219": {
+    "3219": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "212",
@@ -7084,7 +7084,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00783": {
+    "783": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "213",
@@ -7121,7 +7121,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00684": {
+    "684": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "214",
@@ -7158,7 +7158,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00959": {
+    "959": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "215",
@@ -7195,7 +7195,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00472": {
+    "472": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "216",
@@ -7232,7 +7232,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00492": {
+    "492": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "218",
@@ -7269,7 +7269,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00510": {
+    "510": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "219",
@@ -7306,7 +7306,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00513": {
+    "513": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "220",
@@ -7343,7 +7343,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00523": {
+    "523": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "221",
@@ -7380,7 +7380,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00471": {
+    "471": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "223",
@@ -7417,7 +7417,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00361": {
+    "361": {
         "user": "Penny",
         "date": "13-AUG-25",
         "testnum": "225",
@@ -7454,7 +7454,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00945": {
+    "945": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "228",
@@ -7491,7 +7491,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00926": {
+    "926": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "229",
@@ -7528,7 +7528,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00521": {
+    "521": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "230",
@@ -7565,7 +7565,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00360": {
+    "360": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "231",
@@ -7602,7 +7602,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00362": {
+    "362": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "232",
@@ -7639,7 +7639,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00977": {
+    "977": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "233",
@@ -7676,7 +7676,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00946": {
+    "946": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "234",
@@ -7713,7 +7713,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00512": {
+    "512": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "235",
@@ -7750,7 +7750,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00508": {
+    "508": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "236",
@@ -7787,7 +7787,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00524": {
+    "524": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "237",
@@ -7824,7 +7824,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00686": {
+    "686": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "238",
@@ -7861,7 +7861,7 @@
         },
         "OverallResult": "Pass"
     },
-    "03214": {
+    "3214": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "239",
@@ -7898,7 +7898,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00981": {
+    "981": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "240",
@@ -7935,7 +7935,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00978": {
+    "978": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "241",
@@ -7972,7 +7972,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00765": {
+    "765": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "242",
@@ -8009,7 +8009,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00611": {
+    "611": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "243",
@@ -8046,7 +8046,7 @@
         },
         "OverallResult": "Pass"
     },
-    "05012": {
+    "5012": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "244",
@@ -8083,7 +8083,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00916": {
+    "916": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "245",
@@ -8120,7 +8120,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00560": {
+    "560": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "246",
@@ -8157,7 +8157,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00585": {
+    "585": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "247",
@@ -8231,7 +8231,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00609": {
+    "609": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "249",
@@ -8268,7 +8268,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00586": {
+    "586": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "250",
@@ -8305,7 +8305,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00704": {
+    "704": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "251",
@@ -8342,7 +8342,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00613": {
+    "613": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "252",
@@ -8379,7 +8379,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00563": {
+    "563": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "253",
@@ -8416,7 +8416,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00562": {
+    "562": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "254",
@@ -8453,7 +8453,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00702": {
+    "702": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "255",
@@ -8490,7 +8490,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00518": {
+    "518": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "256",
@@ -8527,7 +8527,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00583": {
+    "583": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "257",
@@ -8564,7 +8564,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00622": {
+    "622": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "258",
@@ -8601,7 +8601,7 @@
         },
         "OverallResult": "Pass"
     },
-    "05011": {
+    "5011": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "259",
@@ -8638,7 +8638,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00505": {
+    "505": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "260",
@@ -8675,7 +8675,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00556": {
+    "556": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "261",
@@ -8749,7 +8749,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04930": {
+    "4930": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "263",
@@ -8786,7 +8786,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04917": {
+    "4917": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "264",
@@ -8823,7 +8823,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04926": {
+    "4926": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "265",
@@ -8860,7 +8860,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00621": {
+    "621": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "266",
@@ -8897,7 +8897,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00696": {
+    "696": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "267",
@@ -8934,7 +8934,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00623": {
+    "623": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "268",
@@ -8971,7 +8971,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00700": {
+    "700": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "269",
@@ -9008,7 +9008,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00618": {
+    "618": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "270",
@@ -9045,7 +9045,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00620": {
+    "620": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "271",
@@ -9082,7 +9082,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00587": {
+    "587": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "272",
@@ -9119,7 +9119,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00705": {
+    "705": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "273",
@@ -9156,7 +9156,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00616": {
+    "616": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "274",
@@ -9193,7 +9193,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00699": {
+    "699": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "275",
@@ -9230,7 +9230,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00506": {
+    "506": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "276",
@@ -9267,7 +9267,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00863": {
+    "863": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "277",
@@ -9304,7 +9304,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00593": {
+    "593": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "278",
@@ -9341,7 +9341,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00592": {
+    "592": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "279",
@@ -9378,7 +9378,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00697": {
+    "697": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "280",
@@ -9415,7 +9415,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00595": {
+    "595": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "281",
@@ -9452,7 +9452,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00591": {
+    "591": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "282",
@@ -9489,7 +9489,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00507": {
+    "507": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "283",
@@ -9526,7 +9526,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00588": {
+    "588": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "284",
@@ -9563,7 +9563,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00619": {
+    "619": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "285",
@@ -9600,7 +9600,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00589": {
+    "589": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "286",
@@ -9637,7 +9637,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00617": {
+    "617": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "287",
@@ -9674,7 +9674,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00466": {
+    "466": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "288",
@@ -9711,7 +9711,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04916": {
+    "4916": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "289",
@@ -9748,7 +9748,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04887": {
+    "4887": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "290",
@@ -9785,7 +9785,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04937": {
+    "4937": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "291",
@@ -9822,7 +9822,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04924": {
+    "4924": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "292",
@@ -9859,7 +9859,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00756": {
+    "756": {
         "user": "Penny",
         "date": "14-AUG-25",
         "testnum": "293",
@@ -9896,7 +9896,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04919": {
+    "4919": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "294",
@@ -9933,7 +9933,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04938": {
+    "4938": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "295",
@@ -9970,7 +9970,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04922": {
+    "4922": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "296",
@@ -10007,7 +10007,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04915": {
+    "4915": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "297",
@@ -10044,7 +10044,7 @@
         },
         "OverallResult": "Pass"
     },
-    "03551": {
+    "3551": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "298",
@@ -10081,7 +10081,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04931": {
+    "4931": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "299",
@@ -10118,7 +10118,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04936": {
+    "4936": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "300",
@@ -10155,7 +10155,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04928": {
+    "4928": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "301",
@@ -10192,7 +10192,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04900": {
+    "4900": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "302",
@@ -10229,7 +10229,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04894": {
+    "4894": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "303",
@@ -10266,7 +10266,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04913": {
+    "4913": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "304",
@@ -10303,7 +10303,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04885": {
+    "4885": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "305",
@@ -10340,7 +10340,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04891": {
+    "4891": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "306",
@@ -10377,7 +10377,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04892": {
+    "4892": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "307",
@@ -10414,7 +10414,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04897": {
+    "4897": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "308",
@@ -10451,7 +10451,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04905": {
+    "4905": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "309",
@@ -10488,7 +10488,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04925": {
+    "4925": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "310",
@@ -10525,7 +10525,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04904": {
+    "4904": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "311",
@@ -10562,7 +10562,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04927": {
+    "4927": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "312",
@@ -10599,7 +10599,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04920": {
+    "4920": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "313",
@@ -10636,7 +10636,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04898": {
+    "4898": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "314",
@@ -10673,7 +10673,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04935": {
+    "4935": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "315",
@@ -10710,7 +10710,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04918": {
+    "4918": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "316",
@@ -10747,7 +10747,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04934": {
+    "4934": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "317",
@@ -10784,7 +10784,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04910": {
+    "4910": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "318",
@@ -10821,7 +10821,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04889": {
+    "4889": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "319",
@@ -10858,7 +10858,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04886": {
+    "4886": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "320",
@@ -10895,7 +10895,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04888": {
+    "4888": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "321",
@@ -10932,7 +10932,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04933": {
+    "4933": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "322",
@@ -10969,7 +10969,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04929": {
+    "4929": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "323",
@@ -11006,7 +11006,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04895": {
+    "4895": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "324",
@@ -11043,7 +11043,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04914": {
+    "4914": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "325",
@@ -11080,7 +11080,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04923": {
+    "4923": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "326",
@@ -11117,7 +11117,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04909": {
+    "4909": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "327",
@@ -11154,7 +11154,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04899": {
+    "4899": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "328",
@@ -11191,7 +11191,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04912": {
+    "4912": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "329",
@@ -11228,7 +11228,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04901": {
+    "4901": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "330",
@@ -11265,7 +11265,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04907": {
+    "4907": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "331",
@@ -11302,7 +11302,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04911": {
+    "4911": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "332",
@@ -11339,7 +11339,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04906": {
+    "4906": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "333",
@@ -11376,7 +11376,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04902": {
+    "4902": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "334",
@@ -11413,7 +11413,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04908": {
+    "4908": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "335",
@@ -11450,7 +11450,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04896": {
+    "4896": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "336",
@@ -11487,7 +11487,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04893": {
+    "4893": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "337",
@@ -11524,7 +11524,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04903": {
+    "4903": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "338",
@@ -11561,7 +11561,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04921": {
+    "4921": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "339",
@@ -11598,7 +11598,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04932": {
+    "4932": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "340",
@@ -11635,7 +11635,7 @@
         },
         "OverallResult": "Pass"
     },
-    "03051": {
+    "3051": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "341",
@@ -11816,7 +11816,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04524": {
+    "4524": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "350",
@@ -11853,7 +11853,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04523": {
+    "4523": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "351",
@@ -11890,7 +11890,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04529": {
+    "4529": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "352",
@@ -11927,7 +11927,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04522": {
+    "4522": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "353",
@@ -11964,7 +11964,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04526": {
+    "4526": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "354",
@@ -12001,7 +12001,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04531": {
+    "4531": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "355",
@@ -12038,7 +12038,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04527": {
+    "4527": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "356",
@@ -12075,7 +12075,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04528": {
+    "4528": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "357",
@@ -12112,7 +12112,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04530": {
+    "4530": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "358",
@@ -12149,7 +12149,7 @@
         },
         "OverallResult": "Pass"
     },
-    "03950": {
+    "3950": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "359",
@@ -12186,7 +12186,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00801": {
+    "801": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "360",
@@ -12223,7 +12223,7 @@
         },
         "OverallResult": "Pass"
     },
-    "03290": {
+    "3290": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "361",
@@ -12260,7 +12260,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00809": {
+    "809": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "362",
@@ -12297,7 +12297,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00805": {
+    "805": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "363",
@@ -12334,7 +12334,7 @@
         },
         "OverallResult": "Pass"
     },
-    "03952": {
+    "3952": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "364",
@@ -12371,7 +12371,7 @@
         },
         "OverallResult": "Pass"
     },
-    "03293": {
+    "3293": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "365",
@@ -12408,7 +12408,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00753": {
+    "753": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "366",
@@ -12445,7 +12445,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00758": {
+    "758": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "367",
@@ -12482,7 +12482,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00787": {
+    "787": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "368",
@@ -12519,7 +12519,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00754": {
+    "754": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "369",
@@ -12556,7 +12556,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00757": {
+    "757": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "370",
@@ -12593,7 +12593,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00755": {
+    "755": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "371",
@@ -12630,7 +12630,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00786": {
+    "786": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "372",
@@ -12865,7 +12865,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04253": {
+    "4253": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "384",
@@ -12883,7 +12883,7 @@
         },
         "OverallResult": "Pass"
     },
-    "05274": {
+    "5274": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "385",
@@ -12901,7 +12901,7 @@
         },
         "OverallResult": "Pass"
     },
-    "03111": {
+    "3111": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "386",
@@ -12919,7 +12919,7 @@
         },
         "OverallResult": "Pass"
     },
-    "03126": {
+    "3126": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "387",
@@ -12937,7 +12937,7 @@
         },
         "OverallResult": "Pass"
     },
-    "00355": {
+    "355": {
         "user": "Penny",
         "date": "15-AUG-25",
         "testnum": "388",
@@ -13113,24 +13113,6 @@
             "iectest": {
                 "continuity": "P",
                 "earth": "0.04 OHM",
-                "earthpass": "P",
-                "earthlimit": "0.20 OHM"
-            }
-        },
-        "OverallResult": "Pass"
-    },
-    "3443": {
-        "user": "Penny",
-        "date": "18-AUG-25",
-        "testnum": "396",
-        "testmode": "101 AUTO",
-        "itemtype": "13A EXTENSION REEL",
-        "location": "4067",
-        "Result": {
-            "Visual": "P",
-            "iectest": {
-                "continuity": "P",
-                "earth": "0.15 OHM",
                 "earthpass": "P",
                 "earthlimit": "0.20 OHM"
             }
@@ -16923,7 +16905,7 @@
         },
         "OverallResult": "Pass"
     },
-    "04319": {
+    "4319": {
         "user": "zoe",
         "date": "05-NOV-25",
         "testnum": "527",
@@ -16973,80 +16955,6 @@
                 "earth": "0.05 OHM",
                 "earthpass": "P",
                 "earthlimit": "0.20 OHM"
-            }
-        },
-        "OverallResult": "Pass"
-    },
-    "331": {
-        "user": "zoe",
-        "date": "17-DEC-25",
-        "testnum": "531",
-        "testmode": "100 AUTO",
-        "itemtype": "PAR 64",
-        "location": "4067",
-        "Result": {
-            "Visual": "P",
-            "earthbond": {
-                "testcurrent": "25A",
-                "resistance": "0.23 OHM",
-                "pass": "P",
-                "limit": "0.30 OHM"
-            },
-            "ins1": {
-                "testvoltage": "1   >299 MEG P"
-            },
-            "load": {
-                "load": "1014 VA",
-                "pass": "P",
-                "limit": "3000 VA",
-                "pncontinuity": "P"
-            },
-            "current": {
-                "current": "4.2 A",
-                "pass": "P",
-                "limit": "13.0 A"
-            },
-            "leakage": {
-                "current": "0.05 mA",
-                "pass": "P",
-                "limit": "3.50 mA"
-            }
-        },
-        "OverallResult": "Pass"
-    },
-    "282": {
-        "user": "zoe",
-        "date": "17-DEC-25",
-        "testnum": "532",
-        "testmode": "100 AUTO",
-        "itemtype": "PAR 64",
-        "location": "4067",
-        "Result": {
-            "Visual": "P",
-            "earthbond": {
-                "testcurrent": "25A",
-                "resistance": "0.03 OHM",
-                "pass": "P",
-                "limit": "0.30 OHM"
-            },
-            "ins1": {
-                "testvoltage": "1   >299 MEG P"
-            },
-            "load": {
-                "load": "1016 VA",
-                "pass": "P",
-                "limit": "3000 VA",
-                "pncontinuity": "P"
-            },
-            "current": {
-                "current": "4.2 A",
-                "pass": "P",
-                "limit": "13.0 A"
-            },
-            "leakage": {
-                "current": "0.05 mA",
-                "pass": "P",
-                "limit": "3.50 mA"
             }
         },
         "OverallResult": "Pass"
@@ -17980,43 +17888,6 @@
         },
         "OverallResult": "Pass"
     },
-    "358": {
-        "user": "zoe",
-        "date": "12-FEB-26",
-        "testnum": "588",
-        "testmode": "100 AUTO",
-        "itemtype": "ETC SOURCE 4 - 26",
-        "location": "4067",
-        "Result": {
-            "Visual": "P",
-            "earthbond": {
-                "testcurrent": "25A",
-                "resistance": "0.03 OHM",
-                "pass": "P",
-                "limit": "0.30 OHM"
-            },
-            "ins1": {
-                "testvoltage": "1   >299 MEG P"
-            },
-            "load": {
-                "load": "772 VA",
-                "pass": "P",
-                "limit": "3000 VA",
-                "pncontinuity": "P"
-            },
-            "current": {
-                "current": "3.2 A",
-                "pass": "P",
-                "limit": "13.0 A"
-            },
-            "leakage": {
-                "current": "0.05 mA",
-                "pass": "P",
-                "limit": "3.50 mA"
-            }
-        },
-        "OverallResult": "Pass"
-    },
     "317": {
         "user": "zoe",
         "date": "12-FEB-26",
@@ -18072,7 +17943,7 @@
         },
         "OverallResult": "Pass"
     },
-    "05431": {
+    "5431": {
         "user": "emi",
         "date": "19-FEB-26",
         "testnum": "593",
@@ -18145,38 +18016,38 @@
         },
         "OverallResult": "Pass"
     },
-    "05347": {
+    "5347": {
         "user": "emi",
-        "date": "19-FEB-26",
-        "testnum": "596",
-        "testmode": "102 AUTO",
-        "itemtype": "13A EXTENSION CABLE 4-WAY",
+        "date": "21-FEB-26",
+        "testnum": "602",
+        "testmode": "101 AUTO",
+        "itemtype": "15A > 13A ADAPTER",
         "location": "4073",
         "Result": {
             "Visual": "P",
             "iectest": {
                 "continuity": "P",
-                "earth": "0.09 OHM",
+                "earth": "0.08 OHM",
                 "earthpass": "P",
-                "earthlimit": "0.30 OHM"
+                "earthlimit": "0.20 OHM"
             }
         },
         "OverallResult": "Pass"
     },
-    "05343": {
+    "5343": {
         "user": "emi",
-        "date": "19-FEB-26",
-        "testnum": "597",
-        "testmode": "102 AUTO",
-        "itemtype": "13A EXTENSION CABLE 4-WAY",
+        "date": "21-FEB-26",
+        "testnum": "600",
+        "testmode": "101 AUTO",
+        "itemtype": "15A > 13A ADAPTER",
         "location": "4073",
         "Result": {
             "Visual": "P",
             "iectest": {
                 "continuity": "P",
-                "earth": "0.10 OHM",
+                "earth": "0.08 OHM",
                 "earthpass": "P",
-                "earthlimit": "0.30 OHM"
+                "earthlimit": "0.20 OHM"
             }
         },
         "OverallResult": "Pass"
@@ -18217,46 +18088,10 @@
         },
         "OverallResult": "Pass"
     },
-    "5343": {
-        "user": "emi",
-        "date": "21-FEB-26",
-        "testnum": "600",
-        "testmode": "101 AUTO",
-        "itemtype": "15A > 13A ADAPTER",
-        "location": "4073",
-        "Result": {
-            "Visual": "P",
-            "iectest": {
-                "continuity": "P",
-                "earth": "0.08 OHM",
-                "earthpass": "P",
-                "earthlimit": "0.20 OHM"
-            }
-        },
-        "OverallResult": "Pass"
-    },
     "5341": {
         "user": "emi",
         "date": "21-FEB-26",
         "testnum": "601",
-        "testmode": "101 AUTO",
-        "itemtype": "15A > 13A ADAPTER",
-        "location": "4073",
-        "Result": {
-            "Visual": "P",
-            "iectest": {
-                "continuity": "P",
-                "earth": "0.08 OHM",
-                "earthpass": "P",
-                "earthlimit": "0.20 OHM"
-            }
-        },
-        "OverallResult": "Pass"
-    },
-    "5347": {
-        "user": "emi",
-        "date": "21-FEB-26",
-        "testnum": "602",
         "testmode": "101 AUTO",
         "itemtype": "15A > 13A ADAPTER",
         "location": "4073",

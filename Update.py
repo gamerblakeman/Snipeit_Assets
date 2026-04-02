@@ -141,3 +141,28 @@ def Update(ID, dataIn, Date):
     create(serverURI, key, json.dumps(jsonData))
     print("Request Counter: " + str(requestcounter))
     #auditAsset(serverURI, key, str(ID))
+
+
+def update_SnipeIT(diviceList, testtypes):
+
+    for i in diviceList:
+        print("-----------\nWorking on " + i + ": ")
+        outData = ""
+        divice = diviceList[i]
+        for test in testtypes:
+            try:
+                divice[test]
+                #print(divice[test])
+                outData += test
+                outData += " - Limit: " + divice[test]["Limit"]
+                outData += " - Measurement: " + divice[test]["Measurement"]
+                outData += " - Result: " + divice[test]["Result"]
+                outData += "\n"
+                #print(outData)
+            except KeyError:
+                outData += test + " - No Data\n"
+                #print("Test: "+ test + " Not Found! Applying No Data")
+                #print("Not Found")
+        print("Updating Snipe-IT ID: " + i + "  and date: " + divice["Date"] + " with the following data:\n" + outData)
+        #print(divice["Date"])
+        Update(i, outData, divice["Date"])
