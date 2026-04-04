@@ -437,8 +437,7 @@ class SnipeITAsset:
             if(a == 0):
                 continue
             print(f"Processing appliance {a} for SnipeIT...")
-            if(a == '4890'):
-                    input("Press enter to continue...")
+            
             if(a in self.assets):
                 print(f"Appliance {a} already exists in SnipeIT with ID {self.assets[a]['id']}, skipping...")
                 if(self.assets[a]['model'] != self.Appliances[a]['itemtype_ID']):
@@ -448,12 +447,13 @@ class SnipeITAsset:
                 continue
             else:
                 print(f"Appliance {a} not found in SnipeIT, creating new entry...")
-                print(self.Appliances[a])
+                #print(self.Appliances[a])
                 #input()
-                print(createAsset(self.snipeITUrl,self.apiKey, self.Appliances[a], a))
-                #input("Press enter to continue...")
-            if(a == '4890'):
+                data = json.loads(createAsset(self.snipeITUrl,self.apiKey, self.Appliances[a], a))
+                if(data["status"] == "error"):
+                    print(f"Error creating appliance {a} in SnipeIT: {data['messages']}")
                     input("Press enter to continue...")
+            
         pass
         
     def maintenanceCreate(self):
