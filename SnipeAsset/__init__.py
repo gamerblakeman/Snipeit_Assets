@@ -450,8 +450,9 @@ class SnipeITAsset:
             print(f"Appliance {a} not found in SnipeIT, creating new entry...")
             data = json.loads(createAsset(self.snipeITUrl, self.apiKey, self.Appliances[a], a))
             if(data["status"] == "error"):
-                print(f"Error creating appliance {a} in SnipeIT: {data['messages']}")
+                print(f"Error creating appliance {a} in SnipeIT: {data['messages']} moddel ID: {self.Appliances[a]['itemtype_ID']}")
                 input("Press enter to continue try again...")
+                self.snipeassetSend(a)
                 return 3
             return 2
         
