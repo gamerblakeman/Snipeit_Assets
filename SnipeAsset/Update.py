@@ -379,6 +379,7 @@ def Update(ID, dataIn, Date,serverURI,key):
     }
     print("Request Counter: " + str(requestcounter))
     create(serverURI, key, json.dumps(jsonData))
+    
     print("Request Counter: " + str(requestcounter))
     #auditAsset(serverURI, key, str(ID))
 def updateAssetModdel(server, token, id, model, tag):
