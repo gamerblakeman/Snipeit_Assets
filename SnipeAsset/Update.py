@@ -196,7 +196,8 @@ def updateModel(server, token, id, Model, Name, catID):
         payload = {
             "name": Name,
             "model_number": str(Model),
-            "category_id": catID
+            "category_id": catID,
+            "fieldset_id": 2
         }
         """Update model data.
         
