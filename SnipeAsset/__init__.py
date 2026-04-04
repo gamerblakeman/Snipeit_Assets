@@ -437,7 +437,7 @@ class SnipeITAsset:
             if(a == 0):
                 continue
             print(f"Processing appliance {a} for SnipeIT...")
-            if(a == 4890):
+            if(a == '4890'):
                     print(f"Appliance {a} already exists in SnipeIT with ID {self.assets[a]['id']}, skipping...")
                     print(f"Model in SnipeIT: {self.assets[a]['model']}, Model in Appliance: {self.Appliances[a]['itemtype_ID']}")
                     input("Press enter to continue...")
@@ -454,7 +454,7 @@ class SnipeITAsset:
                 #input()
                 print(createAsset(self.snipeITUrl,self.apiKey, self.Appliances[a], a))
                 #input("Press enter to continue...")
-            if(a == 4890):
+            if(a == '4890'):
                     print(f"Appliance {a} already exists in SnipeIT with ID {self.assets[a]['id']}, skipping...")
                     print(f"Model in SnipeIT: {self.assets[a]['model']}, Model in Appliance: {self.Appliances[a]['itemtype_ID']}")
                     input("Press enter to continue...")
