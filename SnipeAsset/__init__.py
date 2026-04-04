@@ -437,12 +437,11 @@ class SnipeITAsset:
             if(a == 0):
                 continue
             print(f"Processing appliance {a} for SnipeIT...")
-            
-            if(a in self.assets):
-                if(a == 4890):
+            if(a == 4890):
                     print(f"Appliance {a} already exists in SnipeIT with ID {self.assets[a]['id']}, skipping...")
                     print(f"Model in SnipeIT: {self.assets[a]['model']}, Model in Appliance: {self.Appliances[a]['itemtype_ID']}")
                     input("Press enter to continue...")
+            if(a in self.assets):
                 print(f"Appliance {a} already exists in SnipeIT with ID {self.assets[a]['id']}, skipping...")
                 if(self.assets[a]['model'] != self.Appliances[a]['itemtype_ID']):
                     print(f"Model mismatch for appliance {a}, updating model in SnipeIT...")
@@ -455,6 +454,10 @@ class SnipeITAsset:
                 #input()
                 print(createAsset(self.snipeITUrl,self.apiKey, self.Appliances[a], a))
                 #input("Press enter to continue...")
+            if(a == 4890):
+                    print(f"Appliance {a} already exists in SnipeIT with ID {self.assets[a]['id']}, skipping...")
+                    print(f"Model in SnipeIT: {self.assets[a]['model']}, Model in Appliance: {self.Appliances[a]['itemtype_ID']}")
+                    input("Press enter to continue...")
         pass
         
     def maintenanceCreate(self):
