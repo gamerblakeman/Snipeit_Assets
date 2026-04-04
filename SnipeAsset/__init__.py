@@ -437,24 +437,23 @@ class SnipeITAsset:
             if(a == 0):
                 continue
             print(f"Processing appliance {a} for SnipeIT...")
-            
-            if(a in self.assets):
-                print(f"Appliance {a} already exists in SnipeIT with ID {self.assets[a]['id']}, skipping...")
-                if(self.assets[a]['model'] != self.Appliances[a]['itemtype_ID']):
-                    print(f"Model mismatch for appliance {a}, updating model in SnipeIT...")
-                    print(updateAssetModdel(self.snipeITUrl,self.apiKey, self.assets[a]['id'], self.Appliances[a]['itemtype_ID'], a))
-                    #input("Press enter to continue...")
-                continue
-            else:
-                print(f"Appliance {a} not found in SnipeIT, creating new entry...")
-                #print(self.Appliances[a])
-                #input()
-                data = json.loads(createAsset(self.snipeITUrl,self.apiKey, self.Appliances[a], a))
-                if(data["status"] == "error"):
-                    print(f"Error creating appliance {a} in SnipeIT: {data['messages']}")
-                    input("Press enter to continue...")
-            
-        pass
+            self.snipeassetSend(a)
+    
+    def snipeassetSend(self,a):
+        if(a in self.assets):
+            print(f"Appliance {a} already exists in SnipeIT with ID {self.assets[a]['id']}, skipping...")
+            if(self.assets[a]['model'] != self.Appliances[a]['itemtype_ID']):
+                print(f"Model mismatch for appliance {a}, updating model in SnipeIT...")
+                print(updateAssetModdel(self.snipeITUrl,self.apiKey, self.assets[a]['id'], self.Appliances[a]['itemtype_ID'], a))
+            return 1
+        else:
+            print(f"Appliance {a} not found in SnipeIT, creating new entry...")
+            data = json.loads(createAsset(self.snipeITUrl, self.apiKey, self.Appliances[a], a))
+            if(data["status"] == "error"):
+                print(f"Error creating appliance {a} in SnipeIT: {data['messages']}")
+                input("Press enter to continue try again...")
+                return 3
+            return 2
         
     def maintenanceCreate(self):
         from SnipeAsset.Update import update_SnipeIT
