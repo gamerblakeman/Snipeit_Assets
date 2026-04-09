@@ -414,20 +414,9 @@ def update_SnipeIT(diviceList, testtypes,serverURI, key):
         print("-----------\nWorking on " + i + ": ")
         outData = ""
         divice = diviceList[i]
-        for test in testtypes:
-            try:
-                divice[test]
-                #print(divice[test])
-                outData += test
-                outData += " - Limit: " + divice[test]["Limit"]
-                outData += " - Measurement: " + divice[test]["Measurement"]
-                outData += " - Result: " + divice[test]["Result"]
-                outData += "\n"
-                #print(outData)
-            except KeyError:
-                outData += test + " - No Data\n"
-                #print("Test: "+ test + " Not Found! Applying No Data")
-                #print("Not Found")
+        print(divice)
+        #input("Above is the data for " + i + ". Press Enter to continue...")
+        outData += json.dumps(divice["Result"], indent=4, separators=(',', ':'))
         print("Updating Snipe-IT ID: " + i + "  and date: " + divice["date"] + " with the following data:\n" + outData)
-        #print(divice["Date"])
+        print(outData)
         Update(i, outData, divice["date"],serverURI,key)
