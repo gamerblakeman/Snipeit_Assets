@@ -3,6 +3,7 @@ import requests
 import time
 requestcounter = 0
 MaxCounter = 1980
+Maintcounter = 0
 
 def _fetch_paginated(server, token, path, limit=500):
     """Helper to fetch all pages from SnipeIT endpoints with robust pagination.
@@ -83,6 +84,8 @@ def _fetch_paginated(server, token, path, limit=500):
 
 def create(server, token, payload):
         global requestcounter
+        global Maintcounter
+        Maintcounter += 1
         """Create new maintenances data.
         
         Arguments:
@@ -105,7 +108,8 @@ def create(server, token, payload):
             #print("Error creating maintenance: " + str(results.json().get("messages")))
             #print(results)
             raise Exception("Error creating maintenance: " + str(results.json().get("messages")))
-        return json.dumps(results.json(),indent=4, separators=(',', ':'))
+        return [json.dumps(results.json(),indent=4, separators=(',', ':')), Maintcounter]
+
 
 def getDetailsByTagOLD(server, token, AssetTag):
         global requestcounter
@@ -379,9 +383,10 @@ def Update(ID, dataIn, Date,serverURI,key):
     "asset_id": __id
     }
     print("Request Counter: " + str(requestcounter))
-    create(serverURI, key, json.dumps(jsonData))
+    create(serverURI, key, json.dumps(jsonData))[1]
     
     print("Request Counter: " + str(requestcounter))
+    
     #auditAsset(serverURI, key, str(ID))
 def updateAssetModdel(server, token, id, model, tag):
         global requestcounter
@@ -409,7 +414,7 @@ def updateAssetModdel(server, token, id, model, tag):
         return json.dumps(results.json(),indent=4, separators=(',', ':'))
 
 def update_SnipeIT(diviceList, testtypes,serverURI, key):
-
+    Maintcounter = 0
     for i in diviceList:
         print("-----------\nWorking on " + i + ": ")
         outData = ""
@@ -420,3 +425,5 @@ def update_SnipeIT(diviceList, testtypes,serverURI, key):
         print("Updating Snipe-IT ID: " + i + "  and date: " + divice["date"] + " with the following data:\n" + outData)
         print(outData)
         Update(i, outData, divice["date"],serverURI,key)
+        Maintcounter += 1
+    return Maintcounter

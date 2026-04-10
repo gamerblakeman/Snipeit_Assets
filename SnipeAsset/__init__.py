@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from SnipeAsset.FlukeDMS import flukeTest
 from SnipeAsset.Update import createAsset, getDetailsByTag, getDetailsByTagOLD, pullAssetLarge, pullLocations, pullModel, updateAssetModdel
 import json
@@ -87,13 +88,22 @@ class SnipeITAsset:
 
     def importfromFluke(self, infile):
         self.fluke = flukeTest()
-        self.dataout = self.fluke.parse(infile)
-        for d in self.dataout:
+        dataout = self.fluke.parse(infile)
+        for d in dataout:
             self.divice = {}
             id  = d['appno']
+            print("Processing appliance with ID: " + id)
+            if(id in self.Appliances):
+                print("Duplicate ID: " + id)
+                print("Existing appliance data: " + str(self.Appliances[id]))
+                print("file_LOC: " + infile)
+                print("testNum: " + d['testnum'])
+                input("Press enter to continue...")
             if(id == "0"):
                 print("ID is 0, skipping...")
                 continue
+            self.divice['id'] = id
+            self.divice['file'] = infile
             self.divice['user'] = d['user']
             self.divice['date'] = d['date']
             self.divice['testnum'] = d['testnum']
@@ -174,6 +184,9 @@ class SnipeITAsset:
             #check for duplicate ID, if duplicate, add to dupes list, otherwise add to main list
             if(id in self.Appliances):
                 print("Duplicate ID: " + id + " Adding to dupes list")
+                print("Existing appliance data: " + str(self.Appliances[id]))
+                # input("Press enter to continue...")
+
                 self.dupesdiviceList[id] = self.divice
             else:
                 self.Appliances[id] = self.divice
@@ -208,26 +221,27 @@ class SnipeITAsset:
             #print("Duplicate ID found, skipping: " + str(id))
             self.duplicates +=1
             self.dupes.append(id)
-        if(divice != {}):
-            #print(file_LOC)
-            divice["location"] = ""
-            divice["location"] = file_LOC
-            if(file_LOC in self.Locations):
-                divice["location_ID"] = self.Locations[file_LOC]
-            else:
-                divice["location_ID"] = 1
-            #print(divice["location"])
-            self.Appliances[str(int(id))] = divice
-            #print("Appliance " + str(id) + ","+ str(int(id)) + " added to list with data: " + str(divice))
-            self.lastdisc = index
-            divice = {}
-            #input("Press enter to continue...")
         else:
-            debug += "No data found for appliance, skipping..."
-            #print("No data found for appliance, skipping...")
-            debug += "\nLast data point found at index: " + str(self.lastdisc)
-            debug += "\nCurrent index: " + str(index)
-            self.emptycount += 1
+            if(divice != {}):
+                #print(file_LOC)
+                divice["location"] = ""
+                divice["location"] = file_LOC
+                if(file_LOC in self.Locations):
+                    divice["location_ID"] = self.Locations[file_LOC]
+                else:
+                    divice["location_ID"] = 1
+                #print(divice["location"])
+                self.Appliances[str(int(id))] = divice
+                #print("Appliance " + str(id) + ","+ str(int(id)) + " added to list with data: " + str(divice))
+                self.lastdisc = index
+                divice = {}
+                #input("Press enter to continue...")
+            else:
+                debug += "No data found for appliance, skipping..."
+                #print("No data found for appliance, skipping...")
+                debug += "\nLast data point found at index: " + str(self.lastdisc)
+                debug += "\nCurrent index: " + str(index)
+                self.emptycount += 1
         return divice, debug
     def getfromFlukeSoftwere(self, infile):
         skip = 31
@@ -387,6 +401,7 @@ class SnipeITAsset:
         elif(len(self.csv) == 0):
             print("No CSV files found, processing Fluke files only...")
             for f in self.fluke:
+                print(f"Processing Fluke file: {f}")
                 self.importfromFluke(f)
         else:
             print(f"Found {len(self.fluke)} Fluke files and {len(self.csv)} CSV files, processing all files...")
@@ -399,7 +414,10 @@ class SnipeITAsset:
         self.dupesdiviceList = self.fixDates(self.dupesdiviceList)
         #self.exporttoCSV()
         self.sendtosnipe()
-        self.maintenanceCreate()
+        Maintcounter = self.maintenanceCreate()
+        print("Total Appliances Processed: " + str(len(self.Appliances)))
+        print("Total Dupe Processed: " + str(len(self.dupesdiviceList)))
+        print("Total Maintenances Created: " + str(Maintcounter))
 
     
     def fixDates(self, appliances=None):
@@ -458,6 +476,9 @@ class SnipeITAsset:
         
     def maintenanceCreate(self):
         from SnipeAsset.Update import update_SnipeIT
+        Maintcounter = 0
         print(f"Creating maintenance for appliances...")
-        update_SnipeIT(self.Appliances, self.testtypes,self.snipeITUrl,self.apiKey)
-        update_SnipeIT(self.dupesdiviceList, self.testtypes,self.snipeITUrl,self.apiKey)
+        Maintcounter = update_SnipeIT(self.Appliances, self.testtypes,self.snipeITUrl,self.apiKey)
+        # Skip maintenance for duplicates to avoid duplicate data
+        # Maintcounter += update_SnipeIT(self.dupesdiviceList, self.testtypes,self.snipeITUrl,self.apiKey)
+        return Maintcounter

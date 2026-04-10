@@ -13,9 +13,10 @@ serial = None
 
 tests = []
 class flukeTest:
-  def __init__(self, outdata = []):
-    self.outdata = outdata
+  def __init__(self):
+    self.outdata = []
   def parse(self, fielename):
+    self.outdata = []
     with open(fielename) as t:
       self.ls = t.readlines()
       self.tester = re.findall("MODEL *(.*) *?", self.ls[1])[0]
