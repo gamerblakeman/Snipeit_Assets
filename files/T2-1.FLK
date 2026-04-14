@@ -1,0 +1,2422 @@
+
+MODEL   6500
+SN       6469001  
+
+TEST NUMBER      1
+DATE     09-APR-26
+APP NO  4155      
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.01 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1269        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER      2
+DATE     09-APR-26
+APP NO  4163      
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.02 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1296        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER      3
+DATE     09-APR-26
+APP NO  4164      
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.02 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1296        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER      4
+DATE     09-APR-26
+APP NO  4159      
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.01 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1296        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER      5
+DATE     09-APR-26
+APP NO  4158      
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.01 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1296        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER      6
+DATE     09-APR-26
+APP NO  4792      
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.01 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1296        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER      7
+DATE     09-APR-26
+APP NO  04850     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.00 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1296        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER      8
+DATE     09-APR-26
+APP NO  4759      
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.02 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1296        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER      9
+DATE     09-APR-26
+APP NO  4405      
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.02 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1296        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     10
+DATE     09-APR-26
+APP NO  4760      
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.05 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  196         
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     11
+DATE     09-APR-26
+APP NO  04849     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.00 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1296        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     12
+DATE     09-APR-26
+APP NO  04404     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.01 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1296        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     13
+DATE     09-APR-26
+APP NO  4169      
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.02 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1296        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     14
+DATE     09-APR-26
+APP NO  4160      
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.02 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1296        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     15
+DATE     09-APR-26
+APP NO  4754      
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.02 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1296        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     16
+DATE     09-APR-26
+APP NO  4166      
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.02 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1296        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     17
+DATE     09-APR-26
+APP NO  4125      
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.02 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1296        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     18
+DATE     09-APR-26
+APP NO  4205      
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.01 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1296        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     19
+DATE     09-APR-26
+APP NO  4156      
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.01 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1296        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     20
+DATE     09-APR-26
+APP NO  4157      
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.01 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1296        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     21
+DATE     09-APR-26
+APP NO  4154      
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.01 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1296        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     22
+DATE     09-APR-26
+APP NO  04141     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.01 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1159        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     23
+DATE     09-APR-26
+APP NO  04140     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.03 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1159        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     24
+DATE     09-APR-26
+APP NO  04136     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.19 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1159        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     25
+DATE     09-APR-26
+APP NO  4132      
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.00 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1159        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     26
+DATE     09-APR-26
+APP NO  01839     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.00 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1159        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     27
+DATE     09-APR-26
+APP NO  4138      
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.00 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1159        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     28
+DATE     09-APR-26
+APP NO  04142     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.01 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1159        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     29
+DATE     09-APR-26
+APP NO  04133     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.00 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1159        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     30
+DATE     09-APR-26
+APP NO  04135     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.01 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1159        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     31
+DATE     09-APR-26
+APP NO  04134     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.00 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1159        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     32
+DATE     09-APR-26
+APP NO  04137     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.00 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1159        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     33
+DATE     09-APR-26
+APP NO  04139     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.00 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1159        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     34
+DATE     09-APR-26
+APP NO  04688     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.01 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1307        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     35
+DATE     09-APR-26
+APP NO  04054     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.02 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  3002        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     36
+DATE     09-APR-26
+APP NO  04597     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.02 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  3002        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     37
+DATE     09-APR-26
+APP NO  05172     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.02 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  3002        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     38
+DATE     09-APR-26
+APP NO  05372     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.02 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  3002        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     39
+DATE     09-APR-26
+APP NO  05371     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.02 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  3002        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     40
+DATE     09-APR-26
+APP NO  05280     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.02 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  3002        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     41
+DATE     09-APR-26
+APP NO  04052     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.02 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  3002        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     42
+DATE     09-APR-26
+APP NO  05373     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.02 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  3002        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     43
+DATE     09-APR-26
+APP NO  04342     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.04 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1308        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     44
+DATE     09-APR-26
+APP NO  04126     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.03 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  3044        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     45
+DATE     09-APR-26
+APP NO  4598      
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.02 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  3044        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     46
+DATE     09-APR-26
+APP NO  04775     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.01 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  3044        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     47
+DATE     09-APR-26
+APP NO  04689     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.01 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  3044        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     48
+DATE     09-APR-26
+APP NO  04129     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.02 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  3044        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     49
+DATE     09-APR-26
+APP NO  04686     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.01 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  3044        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     50
+DATE     09-APR-26
+APP NO  4599      
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.02 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  3044        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     51
+DATE     09-APR-26
+APP NO  04790     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.02 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  3044        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     52
+DATE     09-APR-26
+APP NO  04127     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.02 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  3044        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     53
+DATE     09-APR-26
+APP NO  04660     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.00 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  3044        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     54
+DATE     09-APR-26
+APP NO  04123     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.04 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  3044        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     55
+DATE     09-APR-26
+APP NO  04102     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.05 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  3046        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     56
+DATE     09-APR-26
+APP NO  4408      
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.04 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  3046        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     57
+DATE     09-APR-26
+APP NO  04703     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.02 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  3046        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     58
+DATE     09-APR-26
+APP NO  04121     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.04 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  3046        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     59
+DATE     09-APR-26
+APP NO  4410      
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.04 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  3046        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     60
+DATE     09-APR-26
+APP NO  04103     
+TEST MODE 102 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.16 OHM P
+LIMIT     0.30 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  3048        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     61
+DATE     09-APR-26
+APP NO  4601      
+TEST MODE 102 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.13 OHM P
+LIMIT     0.30 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  3048        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     62
+DATE     09-APR-26
+APP NO  04106     
+TEST MODE 102 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.12 OHM P
+LIMIT     0.30 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  3048        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     63
+DATE     09-APR-26
+APP NO  04101     
+TEST MODE 102 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.12 OHM P
+LIMIT     0.30 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  3048        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     64
+DATE     09-APR-26
+APP NO  04683     
+TEST MODE 102 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.11 OHM P
+LIMIT     0.30 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  3048        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     65
+DATE     09-APR-26
+APP NO  04684     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.05 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  3047        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     66
+DATE     09-APR-26
+APP NO  4407      
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.06 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  3047        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     67
+DATE     09-APR-26
+APP NO  4672      
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.06 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  3047        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     68
+DATE     09-APR-26
+APP NO  4415      
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.06 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  3047        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     69
+DATE     09-APR-26
+APP NO  04099     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.06 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  3047        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     70
+DATE     09-APR-26
+APP NO  4600      
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.06 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  3047        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     71
+DATE     09-APR-26
+APP NO  04049     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.02 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  3002        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     72
+DATE     09-APR-26
+APP NO  01518     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.00 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1256        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     73
+DATE     09-APR-26
+APP NO  01832     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.00 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1256        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     74
+DATE     09-APR-26
+APP NO  03827     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.00 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1158        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     75
+DATE     09-APR-26
+APP NO  5040      
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.00 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1158        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     76
+DATE     09-APR-26
+APP NO  3599      
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.02 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1158        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     77
+DATE     09-APR-26
+APP NO  1647      
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.00 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1158        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     78
+DATE     09-APR-26
+APP NO  3630      
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.00 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1158        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     79
+DATE     09-APR-26
+APP NO  4151      
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.00 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     80
+DATE     09-APR-26
+APP NO  5039      
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.00 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1158        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     81
+DATE     09-APR-26
+APP NO  5038      
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.00 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1158        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     82
+DATE     09-APR-26
+APP NO  4802      
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.00 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1158        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     83
+DATE     09-APR-26
+APP NO  04115     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.01 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1159        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     84
+DATE     09-APR-26
+APP NO  4186      
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.02 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1159        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     85
+DATE     09-APR-26
+APP NO  04113     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.03 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1159        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     86
+DATE     09-APR-26
+APP NO  04117     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.02 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1159        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     87
+DATE     09-APR-26
+APP NO  4144      
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.01 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1159        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     88
+DATE     09-APR-26
+APP NO  3611      
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.00 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1159        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     89
+DATE     09-APR-26
+APP NO  03437     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.01 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1159        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     90
+DATE     09-APR-26
+APP NO  03116     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.06 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1159        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     91
+DATE     09-APR-26
+APP NO  3605      
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.00 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1159        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     92
+DATE     09-APR-26
+APP NO  2341      
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.00 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1159        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     93
+DATE     09-APR-26
+APP NO  04385     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.02 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1159        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     94
+DATE     09-APR-26
+APP NO  04109     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.03 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1159        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     95
+DATE     09-APR-26
+APP NO  3090      
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.01 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1159        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     96
+DATE     09-APR-26
+APP NO  03420     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.03 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1159        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     97
+DATE     09-APR-26
+APP NO  1812      
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.01 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1159        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     98
+DATE     09-APR-26
+APP NO  05322     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.02 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1159        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER     99
+DATE     09-APR-26
+APP NO  04110     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.03 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1159        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER    100
+DATE     09-APR-26
+APP NO  03053     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.03 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1159        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER    101
+DATE     09-APR-26
+APP NO  03650     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.02 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1159        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER    102
+DATE     09-APR-26
+APP NO  1815      
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.01 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1159        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER    103
+DATE     09-APR-26
+APP NO  2648      
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.03 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1159        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER    104
+DATE     09-APR-26
+APP NO  04107     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.03 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1159        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER    105
+DATE     09-APR-26
+APP NO  3606      
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.01 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1159        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER    106
+DATE     09-APR-26
+APP NO  04108     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.03 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1159        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER    107
+DATE     09-APR-26
+APP NO  04114     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.03 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1159        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER    108
+DATE     09-APR-26
+APP NO  02782     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.03 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1159        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER    109
+DATE     09-APR-26
+APP NO  04208     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.11 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1159        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER    110
+DATE     09-APR-26
+APP NO  1834      
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.03 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1160        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER    111
+DATE     09-APR-26
+APP NO  05360     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.00 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  3051        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER    112
+DATE     09-APR-26
+APP NO  05365     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.00 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  3051        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER    113
+DATE     09-APR-26
+APP NO  05364     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.00 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  3051        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER    114
+DATE     09-APR-26
+APP NO  05362     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.00 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  3051        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER    115
+DATE     09-APR-26
+APP NO  05363     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.00 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  3051        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER    116
+DATE     09-APR-26
+APP NO  05355     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.00 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  3052        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER    117
+DATE     09-APR-26
+APP NO  05354     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.00 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  3052        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER    118
+DATE     09-APR-26
+APP NO  5350      
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.00 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  3052        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER    119
+DATE     09-APR-26
+APP NO  05356     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.00 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  3052        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER    120
+DATE     09-APR-26
+APP NO  05352     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.00 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  3052        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+TEST NUMBER    121
+DATE     09-APR-26
+APP NO  09111     
+TEST MODE 101 AUTO
+SITE  4067        
+SITE1             
+SITE2             
+USER       James B
+VISUAL CHECK     P
+LEAD CONTINUITY  P
+EARTH   0.00 OHM P
+LIMIT     0.20 OHM
+INS 1   >299 MEG P
+LIMIT      1.0 MEG
+DES1  1287        
+DES2              
+DES3              
+LOC1  4067        
+LOC2              
+
+END OF DATA

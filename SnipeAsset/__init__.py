@@ -458,7 +458,7 @@ class SnipeITAsset:
             self.snipeassetSend(a)
     
     def snipeassetSend(self,a):
-        if(str(a) in str(self.assets)):
+        if(str(a) in self.assets):
             print(f"Appliance {a} already exists in SnipeIT with ID {self.assets[a]['id']}, skipping...")
             if(self.assets[a]['model'] != self.Appliances[a]['itemtype_ID']):
                 print(f"Model mismatch for appliance {a}, updating model in SnipeIT...")
@@ -467,7 +467,7 @@ class SnipeITAsset:
         else:
             print(f"Appliance {a} not found in SnipeIT, creating new entry...")
             print(type(a))
-            print(self.assets[a])
+            #print(self.assets[a])
             data = json.loads(createAsset(self.snipeITUrl, self.apiKey, self.Appliances[a], a))
             if(data["status"] == "error"):
                 print(f"Error creating appliance {a} in SnipeIT: {data['messages']} moddel ID: {self.Appliances[a]['itemtype_ID']}")
