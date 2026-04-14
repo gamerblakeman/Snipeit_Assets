@@ -341,10 +341,10 @@ class SnipeITAsset:
                     self.divice["OverallResult"] = data[index]
                 case "txtTestStepName":
                     try:
-                        self.divice["tests"][data[index]] = {}
+                        self.divice["Result"][data[index]] = {}
                     except:
-                        self.divice["tests"] = {}
-                        self.divice["tests"][data[index]] = {}
+                        self.divice["Result"] = {}
+                        self.divice["Result"][data[index]] = {}
                     #self.divice[data[index]] = {}
                     stepname = data[index]
                     if(data[index] not in self.testtypes):
@@ -352,11 +352,11 @@ class SnipeITAsset:
                         self.unknown_TestTypes.append(data[index])
                         self.testtypes.append(data[index])
                 case "txtTestStepLimit":
-                    self.divice["tests"][stepname]["Limit"] = data[index]
+                    self.divice["Result"][stepname]["Limit"] = data[index]
                 case "txtTestStepMeasurement":
-                    self.divice["tests"][stepname]["Measurement"] = data[index]
+                    self.divice["Result"][stepname]["Measurement"] = data[index]
                 case "txtTestStepResult":
-                    self.divice["tests"][stepname]["Result"] = data[index]
+                    self.divice["Result"][stepname]["Result"] = data[index]
                     
                 case "txtFailedAppliances":
                     global fialed_appl
