@@ -458,7 +458,6 @@ class SnipeITAsset:
             self.snipeassetSend(a)
     
     def snipeassetSend(self,a, retry=0):
-        
         try:
             if(self.assets[a] != None):
                 print(f"Appliance {a} already exists in SnipeIT with ID {self.assets[str(a)]['id']}, skipping...")
@@ -470,8 +469,6 @@ class SnipeITAsset:
             
             print(f"Appliance {a} not found in SnipeIT, creating new entry...")
             print(type(a))
-            
-            print(self.assets[str(a)])
             data = json.loads(createAsset(self.snipeITUrl, self.apiKey, self.Appliances[a], a))
             if(data["status"] == "error"):
                 print(f"Error creating appliance {a} in SnipeIT: {data['messages']} moddel ID: {self.Appliances[a]['itemtype_ID']}")
