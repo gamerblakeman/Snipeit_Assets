@@ -458,21 +458,29 @@ class SnipeITAsset:
             self.snipeassetSend(a)
     
     def snipeassetSend(self,a):
-        if(str(a) in self.assets):
-            print(f"Appliance {a} already exists in SnipeIT with ID {self.assets[a]['id']}, skipping...")
-            if(self.assets[a]['model'] != self.Appliances[a]['itemtype_ID']):
-                print(f"Model mismatch for appliance {a}, updating model in SnipeIT...")
-                print(updateAssetModdel(self.snipeITUrl,self.apiKey, self.assets[a]['id'], self.Appliances[a]['itemtype_ID'], a))
-            return 1
-        else:
+        a["retry"] = 0
+        try:
+            if(self.assets[a] != None):
+                print(f"Appliance {a} already exists in SnipeIT with ID {self.assets[str(a)]['id']}, skipping...")
+                if(self.assets[str(a)]['model'] != self.Appliances[str(a)]['itemtype_ID']):
+                    print(f"Model mismatch for appliance {a}, updating model in SnipeIT...")
+                    print(updateAssetModdel(self.snipeITUrl,self.apiKey, self.assets[str(a)]['id'], self.Appliances[str(a)]['itemtype_ID'], a))
+                return 1
+        except KeyError:
+            
             print(f"Appliance {a} not found in SnipeIT, creating new entry...")
             print(type(a))
-            #print(self.assets[a])
+            
+            print(self.assets[str(a)])
             data = json.loads(createAsset(self.snipeITUrl, self.apiKey, self.Appliances[a], a))
             if(data["status"] == "error"):
                 print(f"Error creating appliance {a} in SnipeIT: {data['messages']} moddel ID: {self.Appliances[a]['itemtype_ID']}")
                 input("Press enter to continue try again...")
-                self.snipeassetSend(a)
+                a["retry"] = a["retry"] + 1
+                if(a["retry"] < 3):
+                    return 3
+                else:
+                    self.snipeassetSend(a)
                 return 3
             return 2
         
