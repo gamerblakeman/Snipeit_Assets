@@ -458,7 +458,7 @@ class SnipeITAsset:
             self.snipeassetSend(a)
     
     def snipeassetSend(self,a):
-        if(a in self.assets):
+        if(str(a) in str(self.assets)):
             print(f"Appliance {a} already exists in SnipeIT with ID {self.assets[a]['id']}, skipping...")
             if(self.assets[a]['model'] != self.Appliances[a]['itemtype_ID']):
                 print(f"Model mismatch for appliance {a}, updating model in SnipeIT...")
