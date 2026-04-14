@@ -98,7 +98,7 @@ class SnipeITAsset:
                 print("Existing appliance data: " + str(self.Appliances[id]))
                 print("file_LOC: " + infile)
                 print("testNum: " + d['testnum'])
-                input("Press enter to continue...")
+                #input("Press enter to continue...")
             if(id == "0"):
                 print("ID is 0, skipping...")
                 continue
