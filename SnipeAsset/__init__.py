@@ -457,8 +457,8 @@ class SnipeITAsset:
             print(f"Processing appliance {a} for SnipeIT...")
             self.snipeassetSend(a)
     
-    def snipeassetSend(self,a):
-        a["retry"] = 0
+    def snipeassetSend(self,a, retry=0):
+        
         try:
             if(self.assets[a] != None):
                 print(f"Appliance {a} already exists in SnipeIT with ID {self.assets[str(a)]['id']}, skipping...")
@@ -476,11 +476,11 @@ class SnipeITAsset:
             if(data["status"] == "error"):
                 print(f"Error creating appliance {a} in SnipeIT: {data['messages']} moddel ID: {self.Appliances[a]['itemtype_ID']}")
                 input("Press enter to continue try again...")
-                a["retry"] = a["retry"] + 1
-                if(a["retry"] < 3):
+                retry += 1
+                if(retry < 3):
                     return 3
                 else:
-                    self.snipeassetSend(a)
+                    self.snipeassetSend(a, retry)
                 return 3
             return 2
         
