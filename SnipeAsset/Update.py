@@ -419,6 +419,9 @@ def update_SnipeIT(diviceList, testtypes,serverURI, key):
         print("-----------\nWorking on " + i + ": ")
         outData = ""
         divice = diviceList[i]
+        if(divice["OverallResult"] == "Not In Use"):
+            print("Asset " + i + " is not in use, skipping...")
+            continue
         print(divice)
         #input("Above is the data for " + i + ". Press Enter to continue...")
         outData += json.dumps(divice["Result"], indent=4, separators=(',', ':'))
