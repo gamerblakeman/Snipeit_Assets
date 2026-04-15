@@ -26,11 +26,12 @@ ignore_Types = ['lblClientInformation', 'lblClientName', 'lblClientStreet', 'txt
 learn = {}
 
 class SnipeITAsset:
-    def __init__(self, url, Key):
+    def __init__(self, url, Key, user = 0):
         self.data = pullModel(url, Key)
         self.DiviceTypes = {}
         self.outtableName = {}
         self.data = json.loads(self.data)
+        self.user = user
 
         for i in self.data["rows"]:
             id = i['id']
@@ -282,16 +283,21 @@ class SnipeITAsset:
                                 #print("Already learned, using previous value: " + str(learned[data[index]]))
                                 din = learned[data[index]]
                             else:
-                                dinx = din
-                                print("Unlearned value found: " + str(dinx))
-                                din = input("Enter a valid number for the Type field: ")
-                                try:
-                                    learn[data[index]] = int(din)
-                                    learned[data[index]] = int(din)
-                                    debug += "Learned " + str(dinx) + " as " + str(din)
-                                except ValueError:
-                                    debug += "\nNot a number, skipping..."
-                                    #print("Not a number, skipping...")
+                                if(self.user == 1):
+                                    dinx = din
+                                    print("Unlearned value found: " + str(dinx))
+                                    din = input("Enter a valid number for the Type field: ")
+                                    try:
+                                        learn[data[index]] = int(din)
+                                        learned[data[index]] = int(din)
+                                        debug += "Learned " + str(dinx) + " as " + str(din)
+                                    except ValueError:
+                                        debug += "\nNot a number, skipping..."
+                                        #print("Not a number, skipping...")
+                                        din = 0
+                                else:
+                                    debug += "\nNot a number found in Type field, skipping..."
+                                    #print("Not a number found in Type field, skipping...")
                                     din = 0
                         self.divice['itemtype'] = self.DiviceTypes[str(din)]["name"]
                         self.divice['itemtype_ID'] = self.DiviceTypes[str(din)]["id"]
@@ -470,9 +476,10 @@ class SnipeITAsset:
             print(f"Appliance {a} not found in SnipeIT, creating new entry...")
             print(type(a))
             data = json.loads(createAsset(self.snipeITUrl, self.apiKey, self.Appliances[a], a))
+            print(f"Response from SnipeIT for appliance {a}: {data}")
             if(data["status"] == "error"):
                 print(f"Error creating appliance {a} in SnipeIT: {data['messages']} moddel ID: {self.Appliances[a]['itemtype_ID']}")
-                input("Press enter to continue try again...")
+                #input("Press enter to continue try again...")
                 retry += 1
                 if(retry < 3):
                     return 3
