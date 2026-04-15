@@ -129,6 +129,8 @@ class SnipeITAsset:
                         self.divice['itemtype_ID'] = 1
                         self.divice['Type_ID'] = 1
                         print("Unknown Type found, attempting to learn: " + str(d['des1']))
+                        print(lookup)
+                        print(self.outtableName)
                         #input("Press enter to continue...")
                 except:
                     self.divice['itemtype'] = "Unknown"
