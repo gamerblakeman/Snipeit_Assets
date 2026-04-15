@@ -296,6 +296,7 @@ class SnipeITAsset:
                                         #print("Not a number, skipping...")
                                         din = 0
                                 else:
+                                    input("KeyError found for Type field with value: " + str(data[index]) + " in file: " + infile + "\nPress enter to continue...")
                                     debug += "\nNot a number found in Type field, skipping..."
                                     #print("Not a number found in Type field, skipping...")
                                     din = 0
@@ -303,6 +304,7 @@ class SnipeITAsset:
                         self.divice['itemtype_ID'] = self.DiviceTypes[str(din)]["id"]
                         self.divice['Type_ID'] = int(din)
                     except KeyError:
+                        input("KeyError found for Type field with value: " + str(data[index]) + " in file: " + infile + "\nPress enter to continue...")
                         lookup = "Unknown - " + data[index]
                         if(lookup in self.outtableName):
                             debug += "\nType found in outtableName, using previous value: " + str(self.outtableName[lookup])
