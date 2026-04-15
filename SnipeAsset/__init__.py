@@ -315,6 +315,8 @@ class SnipeITAsset:
                         else:
                             debug += "\nUnknown Type found, attempting to learn: " + str(data[index])
                             print("Unknown Type found, attempting to learn: " + str(data[index]))
+                            print(lookup)
+                            print(self.outtableName)
                             #print("Unknown Type found, attempting to learn: " + str(data[index]))
                             self.divice['itemtype'] = "Unknown - " + data[index]
                             self.divice['itemtype_ID'] = 1
