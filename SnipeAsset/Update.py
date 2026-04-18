@@ -1,9 +1,20 @@
 import json
 import requests
 import time
+
+from SnipeAsset.debuger import debug
 requestcounter = 0
 MaxCounter = 1980
 Maintcounter = 0
+def requestcounterUp():
+    global requestcounter
+    debug("Debug", f"[DEBUG] Request Counter: {requestcounter}")
+    if(requestcounter > MaxCounter):
+        print("Request Counter: " + str(requestcounter) + " - Pausing for 60 seconds to avoid rate limit...")
+        time.sleep(60)
+        requestcounter = 0
+    else:
+         requestcounter += 1
 
 def _fetch_paginated(server, token, path, limit=500):
     """Helper to fetch all pages from SnipeIT endpoints with robust pagination.
@@ -14,12 +25,7 @@ def _fetch_paginated(server, token, path, limit=500):
         url = server + uri
         headers = {'Authorization': f'Bearer {token}', 'accept': 'application/json', 'Content-Type': 'application/json'}
         resp = requests.get(url, headers=headers)
-        global requestcounter
-        requestcounter += 1
-        if requestcounter > MaxCounter:
-            print(f"Request Counter: {requestcounter} - Pausing for 60 seconds to avoid rate limit...")
-            time.sleep(60)
-            requestcounter = 0
+        requestcounterUp()
         return resp.json()
 
     all_rows = []
@@ -47,7 +53,7 @@ def _fetch_paginated(server, token, path, limit=500):
                 seen_ids.add(rid)
                 all_rows.append(row)
 
-        print(f"[DEBUG] {path} offset={offset} rows_this_page={len(page_rows)} duplicates={duplicates} total={total} combined={len(all_rows)}")
+        debug("Debug", f"[DEBUG] {path} offset={offset} rows_this_page={len(page_rows)} duplicates={duplicates} total={total} combined={len(all_rows)}")
 
         if not page_rows or (total and len(all_rows) >= total):
             return {'rows': all_rows, 'total': total or len(all_rows)}
@@ -71,8 +77,7 @@ def _fetch_paginated(server, token, path, limit=500):
             if rid not in seen_ids:
                 seen_ids.add(rid)
                 all_rows.append(row)
-
-        print(f"[DEBUG] {path} page={page} rows_this_page={len(page_rows)} total={total} combined={len(all_rows)}")
+        debug("Debug", f"[DEBUG] {path} page={page} rows_this_page={len(page_rows)} total={total} combined={len(all_rows)}")
 
         if not page_rows or (total and len(all_rows) >= total):
             break
@@ -83,7 +88,7 @@ def _fetch_paginated(server, token, path, limit=500):
 
 
 def create(server, token, payload):
-        global requestcounter
+        
         global Maintcounter
         Maintcounter += 1
         """Create new maintenances data.
@@ -100,7 +105,7 @@ def create(server, token, payload):
         server = server + uri
         headers = {'Content-Type': 'application/json','Authorization': 'Bearer {0}'.format(token)}
         results = requests.post(server, headers=headers, data=payload)
-        requestcounter += 1
+        requestcounterUp()
         #print(results)
         #print("Error Below")
         #b'{"status":"error","messages":{"start_date":["The start date must be a valid date in YYYY-MM-DD format"],"completion_date":["The completion date field must match the format Y-m-d.","The completion date field must be a date after or equal to start date."]},"payload":null}'
@@ -112,7 +117,7 @@ def create(server, token, payload):
 
 
 def getDetailsByTagOLD(server, token, AssetTag):
-        global requestcounter
+        
         """Get asset details by ID
         
         Arguments:
@@ -127,11 +132,7 @@ def getDetailsByTagOLD(server, token, AssetTag):
         server = server + uri
         headers = {'Authorization': 'Bearer {0}'.format(token)}
         results = requests.get(server, headers=headers)
-        requestcounter += 1
-        if(requestcounter > MaxCounter):
-            print("Request Counter: " + str(requestcounter) + " - Pausing for 60 seconds to avoid rate limit...")
-            time.sleep(60)
-            requestcounter = 0
+        requestcounterUp()
         #print(results.content)
         #print("Error Below")
         if(results.json().get("status") == "error"):
@@ -140,7 +141,7 @@ def getDetailsByTagOLD(server, token, AssetTag):
         return results
 
 def getDetailsByTag(server, token, AssetTag):
-        global requestcounter
+        
         """Get asset details by ID
         
         Arguments:
@@ -155,11 +156,7 @@ def getDetailsByTag(server, token, AssetTag):
         server = server + uri
         headers = {'Authorization': 'Bearer {0}'.format(token), 'accept': 'application/json', 'Content-Type': 'application/json'}
         results = requests.get(server, headers=headers)
-        requestcounter += 1
-        if(requestcounter > MaxCounter):
-            print("Request Counter: " + str(requestcounter) + " - Pausing for 60 seconds to avoid rate limit...")
-            time.sleep(60)
-            requestcounter = 0
+        requestcounterUp()
         #print(results.content)
         #print("Error Below")
         if(results.json().get("status") == "error"):
@@ -169,7 +166,7 @@ def getDetailsByTag(server, token, AssetTag):
         return results
 
 def createModel(server, token, id, Name):
-        global requestcounter
+        
         payload = {
             "name": Name,
             "model_number": id,
@@ -196,7 +193,7 @@ def createModel(server, token, id, Name):
         return json.dumps(results.json(),indent=4, separators=(',', ':'))
 
 def updateModel(server, token, id, Model, Name, catID):
-        global requestcounter
+        
         payload = {
             "name": Name,
             "model_number": str(Model),
@@ -217,11 +214,7 @@ def updateModel(server, token, id, Model, Name, catID):
         server = server + uri
         headers = {'Content-Type': 'application/json','Authorization': 'Bearer {0}'.format(token)}
         results = requests.put(server, headers=headers, data=json.dumps(payload))
-        requestcounter += 1
-        if(requestcounter > MaxCounter):
-            print("Request Counter: " + str(requestcounter) + " - Pausing for 60 seconds to avoid rate limit...")
-            time.sleep(60)
-            requestcounter = 0
+        requestcounterUp()
         return json.dumps(results.json(),indent=4, separators=(',', ':'))
         
 def pullModel(server, token):
@@ -240,6 +233,25 @@ def pullAssetLarge(server, token):
         response = _fetch_paginated(server, token, '/api/v1/hardware', limit=500)
         return json.dumps(response, indent=4, separators=(',', ':'))
 
+def updateAsset_PandD(server, token, id, passed, Last_audit_date, date):
+        """Update asset data.
+        
+        Arguments:
+            server {string} -- Server URI
+            token {string} -- Token value to be used for accessing the API
+            payload {string} -- Input parameters
+        """
+        payload = {
+            "last_audit_date": Last_audit_date,
+            "next_audit_date": date,
+            "_snipeit_pattest_result_2" : passed
+        }
+        uri = '/api/v1/hardware/'+str(id)
+        server = server + uri
+        headers = {'Content-Type': 'application/json','Authorization': 'Bearer {0}'.format(token), 'accept': 'application/json'}
+        results = requests.put(server, headers=headers, data=json.dumps(payload))
+        requestcounterUp()
+        return json.dumps(results.json(),indent=4, separators=(',', ':'))
 
 def createAsset(server, token, Divice, ID):
         
@@ -250,15 +262,16 @@ def createAsset(server, token, Divice, ID):
             "supplier_id": None,
             "requestable": False,
             "rtd_location_id": None,
-            "location_id": Divice["location_ID"],
+            "location_id": Divice["LocationSnipeID"],
             "asset_tag": ID,
             "status_id": 2,
-            "model_id": Divice["itemtype_ID"],
+            "model_id": Divice["TypeSnipeID"],
             "name": ID,
             "last_audit_date": Divice["date"],
             "next_audit_date": Divice["nextdate"],
             "_snipeit_pattest_result_2" : Divice["OverallResult"]
         }
+        debug("debug", f"Creating asset with payload: {payload}")
         """Create new asset data
         
         Arguments:
@@ -289,16 +302,11 @@ def deleteAsset(server, token, id):
         server = server + uri
         headers = {'Authorization': 'Bearer {0}'.format(token)}
         results = requests.delete(server, headers=headers)
-        global requestcounter
-        requestcounter += 1
-        if(requestcounter > MaxCounter):
-            print("Request Counter: " + str(requestcounter) + " - Pausing for 60 seconds to avoid rate limit...")
-            time.sleep(60)
-            requestcounter = 0
+        requestcounterUp()
         return json.dumps(results.json(),indent=4, separators=(',', ':'))
 
 def auditAsse123t(server, token, assetTag):
-        global requestcounter
+        
         """Audit an asset
         
         Arguments:
@@ -328,7 +336,7 @@ def auditAsse123t(server, token, assetTag):
         #return json.dumps(results.json(),indent=4, separators=(',', ':'))
 
 def auditAsset(server, token, assetTag=None, locationID=None):
-        global requestcounter
+        
         """Audit an asset
         
         Arguments:
@@ -350,13 +358,8 @@ def auditAsset(server, token, assetTag=None, locationID=None):
             raise Exception("Error creating maintenance: " + str(results.json().get("messages")))
         return json.dumps(results.json(),indent=4, separators=(',', ':'))
 def postRequest(server, headers, json):
-    global requestcounter
-    requestcounter += 1
-    if(requestcounter > MaxCounter):
-        print("Request Counter: " + str(requestcounter) + " - Pausing for 60 seconds to avoid rate limit...")
-        time.sleep(60)
-        requestcounter = 0
     results = requests.post(server, headers=headers, json=json)
+    requestcounterUp()
     return results
 #
 #curl --request POST \
@@ -367,36 +370,24 @@ def postRequest(server, headers, json):
 #     --header 'content-type: application/json' \
 #     --data '{"asset_tag":"4063"}'
 
-def Update(ID, dataIn, Date,serverURI,key):
-    global requestcounter
-    print("Request Counter: " + str(requestcounter))
-    data = getDetailsByTag(serverURI, key, ID)
-    #print(data.content)
-    jsonData = json.loads(data.content)
-    __id = jsonData["id"]
+def Update(ID,snipeID, dataIn, Date,serverURI,key):
     jsonData = {
-    "asset_maintenance_type": "PAT Test",
-    "start_date": Date,
-    "completion_date": Date,
-    "notes": dataIn,
-    "name": "PAT Test - " + ID,
-    "asset_id": __id
+        "asset_maintenance_type": "PAT Test",
+        "start_date": Date,
+        "completion_date": Date,
+        "notes": dataIn,
+        "name": "PAT Test - " + ID,
+        "asset_id": snipeID
     }
-    print("Request Counter: " + str(requestcounter))
     create(serverURI, key, json.dumps(jsonData))[1]
-    
-    print("Request Counter: " + str(requestcounter))
-    
-    #auditAsset(serverURI, key, str(ID))
+
 def updateAssetModdel(server, token, id, model, tag):
-        global requestcounter
         payload = {
             "model_id": model,
             "status_id": 2,
             "asset_tag": str(tag)
         }
         """Update asset data
-        
         Arguments:
             server {string} -- Server URI
             token {string} -- Token value to be used for accessing the API
@@ -406,27 +397,6 @@ def updateAssetModdel(server, token, id, model, tag):
         server = server + uri
         headers = {'Content-Type': 'application/json','Authorization': 'Bearer {0}'.format(token), 'accept': 'application/json'}
         results = requests.put(server, headers=headers, data=json.dumps(payload))
-        requestcounter += 1
-        if(requestcounter > MaxCounter):
-            print("Request Counter: " + str(requestcounter) + " - Pausing for 60 seconds to avoid rate limit...")
-            time.sleep(60)
-            requestcounter = 0
+        requestcounterUp()
         return json.dumps(results.json(),indent=4, separators=(',', ':'))
 
-def update_SnipeIT(diviceList, testtypes,serverURI, key):
-    Maintcounter = 0
-    for i in diviceList:
-        print("-----------\nWorking on " + i + ": ")
-        outData = ""
-        divice = diviceList[i]
-        if(divice["OverallResult"] == "Not In Use"):
-            print("Asset " + i + " is not in use, skipping...")
-            continue
-        print(divice)
-        #input("Above is the data for " + i + ". Press Enter to continue...")
-        outData += json.dumps(divice["Result"], indent=4, separators=(',', ':'))
-        print("Updating Snipe-IT ID: " + i + "  and date: " + divice["date"] + " with the following data:\n" + outData)
-        print(outData)
-        Update(i, outData, divice["date"],serverURI,key)
-        Maintcounter += 1
-    return Maintcounter

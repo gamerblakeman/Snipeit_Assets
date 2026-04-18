@@ -1,14 +1,16 @@
 # -*- coding: utf-8 -*-
 from SnipeAsset.FlukeDMS import flukeTest
-from SnipeAsset.Update import createAsset, getDetailsByTag, getDetailsByTagOLD, pullAssetLarge, pullLocations, pullModel, updateAssetModdel
+from SnipeAsset.FlukeCSV import FlukeCSV
+from SnipeAsset.Update import createAsset, getDetailsByTag, getDetailsByTagOLD, pullAssetLarge, pullLocations, pullModel, updateAsset_PandD, updateAssetModdel,Update
 import json
 import datetime
 import re
 import csv
 import html
+from SnipeAsset.debuger import debug
 
 #{"id":7816,"name":"3443","asset_tag":"3443","serial":"","model":{"id":203,
-debuglevel = 0
+
 outattheend = 1
 unknown_TestTypes = []
 file_LOC = ""
@@ -26,13 +28,21 @@ ignore_Types = ['lblClientInformation', 'lblClientName', 'lblClientStreet', 'txt
 learn = {}
 
 class SnipeITAsset:
-    def __init__(self, url, Key, user = 0):
-        self.data = pullModel(url, Key)
+    def __init__(self, url, Key):
+        self.snipeITUrl = url #snipe IT url, this will be used to create or update assets in snipeIT, this is passed in when the class is initialized and stored as an instance variable for later use when making API calls to snipeIT
+        self.apiKey = Key #snipe IT API key, this will be used to authenticate API calls to snipeIT, this is passed in when the class is initialized and stored as an instance variable for later use when making API calls to snipeIT
+        self.divlist = [] #this will be used to store all the tests that are found during the processing of the data, this is a list of dictionaries where each dictionary contains all the details for a single test, this will be used later to create or update assets in snipeIT with the correct details for each test and to handle any duplicates or unknown types that are found during the processing of the data
+        self.csvList = []
+        self.flukeList = []
+        self.csv = FlukeCSV() #initialize the fluke csv class
+        self.fluke = flukeTest() #initialize the fluke test class
+        self.typeSadList = []
+
+    def getDatafromSnipe(self):
+        self.data = pullModel(self.snipeITUrl, self.apiKey)
         self.DiviceTypes = {}
         self.outtableName = {}
         self.data = json.loads(self.data)
-        self.user = user
-
         for i in self.data["rows"]:
             id = i['id']
             name = i['name']
@@ -47,7 +57,7 @@ class SnipeITAsset:
             self.DiviceTypes[number] = {'id': id, 'name': name, 'catNo': catNo}
             self.outtableName[name] = {'id': id, 'number': number, 'catNo': catNo}
         
-        self.data = pullLocations(url, Key)
+        self.data = pullLocations(self.snipeITUrl, self.apiKey)
         self.Locations = {}
         self.data = json.loads(self.data)
 
@@ -57,448 +67,192 @@ class SnipeITAsset:
             name = html.unescape(name)
             self.Locations[name] = id
 
-        self.data = pullAssetLarge(url, Key)
+        self.data = pullAssetLarge(self.snipeITUrl, self.apiKey)
         self.data = json.loads(self.data)
         self.assets = {}
-        print(len(self.data["rows"]))
-        print(self.data["total"])
+        debug("Debug",len(self.data["rows"]))
+        debug("Debug",self.data["total"])
+        debug("Debug",self.data)
         for i in self.data["rows"]:
             id = i['id']
             tag = i['asset_tag']
+            if(i['next_audit_date'] == None):
+                i['next_audit_date'] = {"date": "None"}
+            if(i['last_audit_date'] == None):
+                i['last_audit_date'] = {"date": "None"}
+            if("date" in i['next_audit_date']):
+                nextaudit = i['next_audit_date']["date"]
+            else:
+                nextaudit = None
+            
+            if("date" in i['last_audit_date']):
+                lastaudit = i['last_audit_date']["date"]
+            else:
+                lastaudit = None
+            if("custom_fields" in i):
+                if("PatTest_Result" in i["custom_fields"]):
+                    result = i["custom_fields"]["PatTest_Result"]
+                else:
+                    result = "unknown"
+            else:
+                result = "unknown"
             try:
                 model = i['model']['id']
             except KeyError:
                 model = 0
             #tag = html.unescape(tag)
-            self.assets[tag] = {'id': id, 'model': model}
-        
-        self.snipeITUrl = url
-        self.apiKey = Key
-        self.dupesdiviceList ={}
-        self.Appliances = {}
-        self.testtypes = []
-        self.ListTypes = {}
-        self.unknown_TestTypes = []
-        self.csv = []
-        self.fluke = []
-        self.duplicates = 0
-        self.dupes = []
-        self.emptycount = 0
-        self.lastdisc = 0
-        #self.DiviceTypes = {1156:"13A > 15A ADAPTER",1157:"15A > 13A ADAPTER",1158:"13A > 16A ADAPTER",1159:"16A > 13A ADAPTER",1160:"16A > 15A ADAPTER",1161:"15A > 16A ADAPTER",1163:"15A > IEC ADAPTER",1164:"13A > IEC JUMPER",1165:"16A > IEC ADAPTER",1166:"SOCA > IEC SPIDER",1167:"13A > SOCA SPIDER",1168:"TRELCO",1170:"15A > SOCA PLUG SPIDER",1171:"SOCA > 15A SOCKET SPIDER",1202:"13A IEC CABLE",1203:"15A IEC CABLE",1204:"16A IEC CABLE",1205:"GRELCO",1247:"15A > 32A ADAPTER",1248:"32A > 15A ADAPTER",1249:"32A > 16A ADAPTER",1256:"16A SPLITTER",1263:"32A > 16A RUBBER BOX",1264:"32A > IEC ADAPTER",1265:"13A > 32A ADAPTER",1266:"32A > 13A ADAPTER",1269:"SOCA SPLITTER BOX",1273:"IEC SPLITTER",1282:"13A EXTENSION",1288:"16A > TRUCON ADAPTER",1296:"16A > POWERCON ADAPTER",1297:"15A > TRUCON ADAPTER",1300:"110 V TRANSFORMER",1301:"DMX 8 WAY RELAY BOX",1304:"110 V SPLITTER",1305:"16A > 32A ADAPTER",1306:"TRUCON SPLITTER",1308:"13A > POWERCON",1309:"15A > POWERCON ADAPTER",3002:"POWERCON JOINER",3012:"13A > TRUCON ADAPTER",3013:"13A > C7 IEC (FIGURE 8)",3021:"TRUCON > 16A ADAPTER",3023:"16A > SOCA PLUG SPIDER",3024:"SOCA > 16A SOCKET SPIDER",3036:"13A > 110 V",3037:"110V > IEC",3038:"TRUCON > IEC",1001:"13A EXTENSION CABLE 4-WAY",1002:"13A EXTENSION REEL",1132:"15A TRS - 1m",1133:"15A TRS - 2m",1134:"15A TRS - 3m",1135:"15A TRS - 4m",1136:"15A TRS - 5m",1137:"15A TRS - 6m",1138:"15A TRS - 7m",1139:"15A TRS - 8m",1140:"15A TRS - 9m",1141:"15A TRS - 10m",1142:"15A TRS - 11m",1143:"15A TRS - 12m",1144:"15A TRS - 13m",1145:"15A TRS - 14m",1146:"15A TRS - 15m",1147:"15A TRS - 16m",1148:"15A TRS - 17m",1149:"15A TRS - 18m",1150:"15A TRS - 19m",1151:"15A TRS - 20m",1152:"15A TRS - 25m",1153:"15A TRS - 30m",1154:"15A TRS - 40m",1155:"15A TRS - 50m",1177:"16A TRS - 1m",1178:"16A TRS - 2m",1179:"16A TRS - 3m",1180:"16A TRS - 4m",1181:"16A TRS - 5m",1182:"16A TRS - 6m",1183:"16A TRS - 7m",1184:"16A TRS - 8m",1185:"16A TRS - 9m",1186:"16A TRS - 10m",1187:"16A TRS - 11m",1188:"16A TRS - 12m",1189:"16A TRS - 13m",1190:"16A TRS - 14m",1191:"16A TRS - 15m",1192:"16A TRS - 16m",1193:"16A TRS - 17m",1194:"16A TRS - 18m",1195:"16A TRS - 19m",1196:"16A TRS - 20m",1197:"16A TRS - 25m",1198:"16A TRS - 30m",1199:"16A TRS - 40m",1200:"16A TRS - 50m",1209:"SOCAPEX",1210:"IWB",1214:"SOCA - 3m",1215:"SOCA - 6m",1216:"SOCA - 8m",1217:"SOCA - 10m",1218:"SOCA - 12m",1219:"SOCA - 13m",1220:"SOCA - 15m",1221:"SOCA - 18m",1222:"SOCA - 20m",1223:"SOCA - 22m",1224:"SOCA - 25m",1225:"SOCA - 30m",1227:"32A - 30m",1228:"32A - 20m",1229:"32A - 15m",1230:"32A - 10m",1246:"SOCA - 2m",1267:"IEC CABLE",1287:"TRUCON EXTENSION - 1m",1295:"CABLE RETRACTOR",1303:"110 V EXTENSION",1307:"POWERCON EXTENSION",3003:"SOCA - 5m",3004:"SOCA - 7m",3005:"32A - 5m",3011:"KABUKI CABLE",3025:"TRUCON EXTENSION - 2m",3027:"TRUCON EXTENSION - 3m",3028:"TRUCON EXTENSION - 5m",3029:"TRUCON EXTENSION - 7m",3030:"TRUCON EXTENSION - 8m",3031:"TRUCON EXTENSION - 10m",3032:"TRUCON EXTENSION - 15m",3033:"TRUCON EXTENSION - 20m",3035:"IEC > 16A adapter ",1122:"STRAND 520 LIGHTING DESK",3034:"Lighting Desk",1005:"PORTABLE FLOOD LIGHT",1081:"PAR 64",1082:"AC 1000 FLOOD",1083:"LC9",1084:"PAR 64 - FLOOR CAN",1085:"STRAND PATT 243",1086:"STRAND PATT 123",1087:"STRAND PATT 23",1088:"STRAND PATT 743",1089:"AERO 4- WAY BATTEN",1090:"HOWIE BATTEN",1091:"500W SUN FLOOD",1092:"1000W SUN FLOOD",1093:"LED PAR CAN",1094:"ADB 1K FRESNEL",1095:"ADB 2K FRESNEL",1096:"CCT SIL 11 - 26",1097:"CCT SIL 15-32",1098:"CCT STARLETTE 1K FRESNEL",1099:"CCT STARLETTE 2K FRESNEL",1100:"ETC SOURCE 4 - 19",1101:"ETC SOURCE 4 - 26",1102:"ETC SOURCE 4 - 36",1103:"ETC SOURCE 4 - 10",1104:"ETC SOURCE 4 - 90",1105:"ETC SOURCE 4 ZOOM 15-30",1106:"ETC SOURCE 4 ZOOM 25-50",1107:"STRAND CANTATA 26-44",1108:"CCT SIL 30",1109:"CCT MINUETTE FRESNEL",1110:"CCT MINUETTE PC",1111:"CCT MINUETTE PROFILE",1112:"CCT MINUETTE FLOOD",1113:"JEM ZR 33 SMOKE MACHINE",1114:"JEM ZR 12 SMOKE MACHINE",1115:"UNIQUE HAZE MACHINE",1116:"SCROLLER PSU",1117:"AXIAL FAN",1118:"FESTOON",1119:"ROPE LIGHT",1120:"DMX SPLITTER",1121:"FOLLOWSPOT BALLAST",1125:"CCT STARLETTE 4 CELL FLOOD",1126:"CCT MINUETTE 4 CELL FLOOD",1128:"STRAND CANTATA 18-32",1129:"PINSPOT",1130:"BIRDIE - 240 V",1131:"BIRDIE TRANSFORMER",1162:"CLIP LIGHT",1206:"DIMMER",1211:"STRAND BAMBINO 5K",1212:"PAR 36 BEAN CAN",1213:"150W SUN FLOOD",1231:"ETC SOURCE 4 PAR",1250:"PAR 56",1251:"THOMAS FLOOD 4 CELL",1252:"THOMAS FLOOD 1 CELL",1253:"MIRRORBALL ROTATOR",1254:"THOMAS BATTEN",1255:"WAY 5+6 THOMAS BATTEN",1257:"PAR 38 BATTEN",1258:"STRAND 2K PC CADENZA",1259:"SNOW MACHINE",1260:"ATOMIC STROBE",1261:"DATAFLASH STROBE",1262:"SOUNDLAB SCANNER",1268:"SMOKE MACHINE",1270:"4 WAY DIMMER",1271:"SINGLE DIMMER",1272:"BLINDER",1275:"CCT SIL 15",1279:"INSPECTION LAMP",1280:"LED FLOOD",1281:"EMERGENCY LIGHT",1284:"ETC SOURCE 4 - 50",1286:"LED BIRDIE",1289:"SUNSTRIP",1290:"LED BATTEN",1291:"RAT STAND",1292:"UV LIGHT",1293:"BUBBLE MACHINE",1294:"CHAUVET VESUVIO",1298:"ETC SOURCE 4 - 14",1299:"LOW FOGGER",1302:"STRAND BEAM LIGHT",3000:"LE MAITRE MVS HAZER",3001:"CHAUVET CUMULUS",3006:"JEM AF1",3009:"PROLIGHT STUDIO COB",3022:"MARTIN MAC AURA XIP",3023:"ETC COLORSOURCE SPOT V",1006:"BATTERY CHARGER",1007:"FAN",1009:"BAR HEATER",1010:"FAN HEATER",1017:"ANGLEPOISE LAMP",1024:"HEATED CABINET",1025:"FRIDGE",1038:"ELECTRIC IRON",1046:"ELECTRIC GRINDER",1057:"MONITOR",1058:"PC",1059:"PRINTER",1060:"TV",1065:"VCR",1066:"AMPLIFIER",1071:"PROJECTOR",1078:"ELECTRIC DRILL",1201:"NETWORK SWITCH",1274:"WORKSHOP POWER TOOLS",1277:"POWER SUPPLY",1278:"RCD BLOCK",1283:"ELECTRO MAGNET",1285:"28 V TRANSFORMER",3007:"UNIVERSAL SERVO CONTROLLER",3008:"GLASSON PSU",3010:"KABUKI DROP",1172:"MIXER",1173:"PROCESSOR",1174:"PLAYBACK",1175:"COMPUTER",1176:"POWERED SPEAKER",1208:"IR SOURCE",3039:"13A > Klik",3040:"Klik > IEC",3041:"PowerCon > 110V",3042:"110V > 13A",3043:"PowerCon > IEC"}
+            self.assets[tag] = {'id': id, 'model': model, 'next_audit_date': nextaudit, 'last_audit_date': lastaudit}
 
-    def importfromFluke(self, infile):
-        self.fluke = flukeTest()
-        dataout = self.fluke.parse(infile)
-        for d in dataout:
-            self.divice = {}
-            id  = d['appno']
-            print("Processing appliance with ID: " + id)
-            if(id in self.Appliances):
-                print("Duplicate ID: " + id)
-                print("Existing appliance data: " + str(self.Appliances[id]))
-                print("file_LOC: " + infile)
-                print("testNum: " + d['testnum'])
-                #input("Press enter to continue...")
-            if(id == "0"):
-                print("ID is 0, skipping...")
-                continue
-            self.divice['id'] = id
-            self.divice['file'] = infile
-            self.divice['user'] = d['user']
-            self.divice['date'] = d['date']
-            self.divice['testnum'] = d['testnum']
-            self.divice['testmode'] = d['testmode']
-            try:
-                self.divice['itemtype'] = self.DiviceTypes[str(d['des1'])]["name"]
-                self.divice['itemtype_ID'] = self.DiviceTypes[str(d['des1'])]["id"]
-                self.divice['Type_ID'] = int(d['des1'])
-            except:
-                try:
-                    lookup = "Unknown - " + d['des1']
-                    if(lookup in self.outtableName):
-                        #debug += "\nType found in outtableName, using previous value: " + str(self.outtableName[lookup])
-                        #print("Type found in outtableName, using previous value: " + str(self.outtableName[lookup]))
-                        self.divice['itemtype'] = lookup
-                        self.divice['itemtype_ID'] = self.outtableName[lookup]["id"]
-                        self.divice['Type_ID'] = self.outtableName[lookup]["number"]
-                    else:
-                        #debug += "\nUnknown Type found, attempting to learn: " + str(data[index])
-                        #print("Unknown Type found, attempting to learn: " + str(data[index]))
-                        self.divice['itemtype'] = "Unknown - " + d['des1']
-                        self.divice['itemtype_ID'] = 1
-                        self.divice['Type_ID'] = 1
-                        print("Unknown Type found, attempting to learn: " + str(d['des1']))
-                        print(lookup)
-                        print(self.outtableName)
-                        #input("Press enter to continue...")
-                except:
-                    self.divice['itemtype'] = "Unknown"
-                    self.divice['itemtype_ID'] = 1
-                    self.divice['Type_ID'] = 1
-            self.divice['location'] = d['loc']
-            if(d['loc'] in self.Locations):
-                self.divice["location_ID"] = self.Locations[d['loc']]
-            else:
-                self.divice["location_ID"] = 1
-            dpass = True
-            try:
-                self.divice['Result'] = {"Visual": d['visual']}
-                if(d['visual'] != "P"):
-                    dpass = False
-            except:
-                self.divice['Result'] = {"Visual": "unknown"}
-                dpass = False
-            
-            for t in d['tests']:
-                #testtypes.append(t)
-                self.divice['Result'][t] = {}
-                if(t in self.testtypes):
-                    pass
-                else:
-                    self.testtypes.append(t)
-                #print(t)
-                #print("-----")
-                if(t in self.ListTypes):
-                    pass
-                else:
-                    self.ListTypes[t] = []
-
-                
-                for k in d['tests'][t]:
-                    self.divice['Result'][t][k] = d['tests'][t][k]
-                    if(k == "pass"):
-                        if(d['tests'][t][k] != "P"):
-                            dpass = False
-
-                    #print(f"{k}: {d['tests'][t][k]}")
-                    if(k in self.ListTypes.get(t, [])):
-                        pass
-                    else:
-                        self.ListTypes[t].append(k)
-            #print(divice)
-
-            #Divice overall result is pass if all tests are pass, otherwise fail. If any test is unknown, then overall result is fail
-            if(dpass):
-                self.divice['OverallResult'] = "Pass"
-            else:
-                self.divice['OverallResult'] = "Fail"
-
-            #check for duplicate ID, if duplicate, add to dupes list, otherwise add to main list
-            if(id in self.Appliances):
-                print("Duplicate ID: " + id + " Adding to dupes list")
-                print("Existing appliance data: " + str(self.Appliances[id]))
-                # input("Press enter to continue...")
-
-                self.dupesdiviceList[id] = self.divice
-            else:
-                self.Appliances[id] = self.divice
-    def __get_Filedata(self, file):
-        with open(file, newline="", encoding="utf-8") as f:
-            reader = csv.reader(f)
-
-            Titles = next(reader)   # ✅ get first row
-            data = next(reader)   # ✅ get first row
-        return Titles, data
-    def __storeData(self, divice, id, index, debug="", file_LOC=""):
-        global counterApplianceNumber
-        global duplicates
-        global lastdisc
-        global emptycount
-        global debuglevel
-        
-        counterApplianceNumber += 1
-        if(debuglevel > 0):
-            print("\n\n-------------\nAppliance Number: " + str(self.data[index]) + "\nSaved!\n"+debug+"\n-------------")
-        debug = ""
-        if(debuglevel > 0):
-            print("Next Appliance Found, resetting divice data...")
-        if(str(int(id)) in self.Appliances):
-            debug += "Duplicate ID found, skipping: " + str(id)
-            divice["location"] = file_LOC
-            if(file_LOC in self.Locations):
-                divice["location_ID"] = self.Locations[file_LOC]
-            else:
-                divice["location_ID"] = 1
-            self.dupesdiviceList[str(int(id))] = divice
-            #print("Duplicate ID found, skipping: " + str(id))
-            self.duplicates +=1
-            self.dupes.append(id)
-        else:
-            if(divice != {}):
-                #print(file_LOC)
-                divice["location"] = ""
-                divice["location"] = file_LOC
-                if(file_LOC in self.Locations):
-                    divice["location_ID"] = self.Locations[file_LOC]
-                else:
-                    divice["location_ID"] = 1
-                #print(divice["location"])
-                self.Appliances[str(int(id))] = divice
-                #print("Appliance " + str(id) + ","+ str(int(id)) + " added to list with data: " + str(divice))
-                self.lastdisc = index
-                divice = {}
-                #input("Press enter to continue...")
-            else:
-                debug += "No data found for appliance, skipping..."
-                #print("No data found for appliance, skipping...")
-                debug += "\nLast data point found at index: " + str(self.lastdisc)
-                debug += "\nCurrent index: " + str(index)
-                self.emptycount += 1
-        return divice, debug
-    def getfromFlukeSoftwere(self, infile):
-        skip = 31
-        debug = ""
-        global counterApplianceNumber
-        global duplicates
-        global lastdisc
-        global emptycount
-        Titles, data = self.__get_Filedata(infile)
-        #location 29th section in the data from lblClientInformation
-        self.divice = {}
-        id = 0
-        stepname = "" 
-        counter = 0
-        file_LOC = data[28]
-        for index, i in enumerate(Titles):
-            if(counter < skip):
-                counter += 1
-                #continue
-
-            match i:
-                case "txtApplianceNumber":
-                    self.divice, debug = self.__storeData(self.divice,id,index, debug, file_LOC=file_LOC)
-                
-
-                case "txtApplianceName":
-                    try:
-                        din = re.sub("[A-z]+", " ", data[index]).strip()
-                        try:
-                            int(din)
-                        except ValueError:
-                            debug += "\nNot a number found in Type field, attempting to learn..."
-                            #print("Not a number found in Type field, attempting to learn...")
-                            debug += "\n" + str(data[index])
-                            #print(data[index])
-                            if(data[index] in learned):
-                                debug += "\nAlready learned, using previous value: " + str(learned[data[index]])
-                                #print("Already learned, using previous value: " + str(learned[data[index]]))
-                                din = learned[data[index]]
-                            else:
-                                if(self.user == 1):
-                                    dinx = din
-                                    print("Unlearned value found: " + str(dinx))
-                                    din = input("Enter a valid number for the Type field: ")
-                                    try:
-                                        learn[data[index]] = int(din)
-                                        learned[data[index]] = int(din)
-                                        debug += "Learned " + str(dinx) + " as " + str(din)
-                                    except ValueError:
-                                        debug += "\nNot a number, skipping..."
-                                        #print("Not a number, skipping...")
-                                        din = 0
-                                else:
-                                    #input("KeyError found for Type field with value: " + str(data[index]) + " in file: " + infile + "\nPress enter to continue...")
-                                    debug += "\nNot a number found in Type field, skipping..."
-                                    #print("Not a number found in Type field, skipping...")
-                                    din = 0
-                        self.divice['itemtype'] = self.DiviceTypes[str(din)]["name"]
-                        self.divice['itemtype_ID'] = self.DiviceTypes[str(din)]["id"]
-                        self.divice['Type_ID'] = int(din)
-                    except KeyError:
-                        #input("KeyError found for Type field with value: " + str(data[index]) + " in file: " + infile + "\nPress enter to continue...")
-                        lookup = "Unknown - " + data[index]
-                        if(lookup in self.outtableName):
-                            debug += "\nType found in outtableName, using previous value: " + str(self.outtableName[lookup])
-                            #print("Type found in outtableName, using previous value: " + str(self.outtableName[lookup]))
-                            self.divice['itemtype'] = lookup
-                            self.divice['itemtype_ID'] = self.outtableName[lookup]["id"]
-                            self.divice['Type_ID'] = self.outtableName[lookup]["number"]
-                        else:
-                            debug += "\nUnknown Type found, attempting to learn: " + str(data[index])
-                            print("Unknown Type found, attempting to learn: " + str(data[index]))
-                            print(lookup)
-                            print(self.outtableName)
-                            #print("Unknown Type found, attempting to learn: " + str(data[index]))
-                            self.divice['itemtype'] = "Unknown - " + data[index]
-                            self.divice['itemtype_ID'] = 1
-                            self.divice['Type_ID'] = 1
-                            #input("Press enter to continue...")
-
-
-            
-                case "txtApplianceDate":#2026-04-26
-                    month = data[index].split("-")[1]
-                    year = data[index].split("-")[0]
-                    day = data[index].split("-")[2]
-                    if(year == "2026"):
-                        year = "2025"
-                    self.divice["date"] = year + "-" + month + "-" + day
-
-                case "txtApplianceInterval":
-                    self.divice["Interval"] = data[index]
-                case "txtApplianceCode":
-                    #counterApplianceNumber += 1
-                    try:
-                        id = int(data[index])
-                    except ValueError:  
-                        debug += "\nNot a number found in ID field, skipping..."
-                        #print("Not a number found in ID field, skipping...")
-                        id = data[index]
-                        faild_ID.append(data[index])
-                    if(id == "0"):
-                        print("ID is 0, skipping...")
-                        
-                case "txtApplianceResult":
-                    self.divice["OverallResult"] = data[index]
-                case "txtTestStepName":
-                    try:
-                        self.divice["Result"][data[index]] = {}
-                    except:
-                        self.divice["Result"] = {}
-                        self.divice["Result"][data[index]] = {}
-                    #self.divice[data[index]] = {}
-                    stepname = data[index]
-                    if(data[index] not in self.testtypes):
-                        print("New Test Type Found: " + data[index])
-                        self.unknown_TestTypes.append(data[index])
-                        self.testtypes.append(data[index])
-                case "txtTestStepLimit":
-                    self.divice["Result"][stepname]["Limit"] = data[index]
-                case "txtTestStepMeasurement":
-                    self.divice["Result"][stepname]["Measurement"] = data[index]
-                case "txtTestStepResult":
-                    self.divice["Result"][stepname]["Result"] = data[index]
-                    
-                case "txtFailedAppliances":
-                    global fialed_appl
-                    fialed_appl += int(data[index])
-                case "txtPassedAppliances":
-                    global passed_appl
-                    passed_appl += int(data[index])
-                case i if i in ignore_Types:
-                    debug += "\nType is in the ignore list: " + i
-                    #print("Ignoring " + i)
-                case _:
-                    debug += "\nUnhandled data point found: " + i + " with value: " + str(data[index])
-                    #print("Not Found")
-                    #print(i)
-                    #print(data[index])
-                    if(i in unhandled):
-                        debug += "\nAlready marked as unhandled, skipping..."
-                    else:                    
-                        unhandled.append(i)
-                    #print("-------------")
-        
-        # Store the final appliance after loop completes
-        self.divice, debug = self.__storeData(self.divice, id, len(Titles)-1, debug, file_LOC=file_LOC)
+    
     def getlistofFiles(self, path):
         import os
-        
         for r, d, f in os.walk(path):
             for file in f:
                 if '.csv' in file:
-                    self.csv.append(os.path.join(r, file))
+                    self.csvList.append(os.path.join(r, file))
                 if '.FLK' in file:
-                    self.fluke.append(os.path.join(r, file))
-    def processFiles(self,file_LOC):
-        self.getlistofFiles(file_LOC)
-        if(len(self.fluke) == 0 and len(self.csv) == 0):
-            print("No files found in the specified location.")
-            return
-        elif(len(self.fluke) == 0):
-            print("No Fluke files found, processing CSV files only...")
-            for c in self.csv:
-                self.getfromFlukeSoftwere(c)
-        elif(len(self.csv) == 0):
-            print("No CSV files found, processing Fluke files only...")
-            for f in self.fluke:
-                print(f"Processing Fluke file: {f}")
-                self.importfromFluke(f)
-        else:
-            print(f"Found {len(self.fluke)} Fluke files and {len(self.csv)} CSV files, processing all files...")
-            for f in self.fluke:
-                self.importfromFluke(f)
-            for c in self.csv:
-                self.getfromFlukeSoftwere(c)
-    def snipeITData(self):
-        self.Appliances = self.fixDates(self.Appliances)
-        self.dupesdiviceList = self.fixDates(self.dupesdiviceList)
-        #self.exporttoCSV()
-        self.sendtosnipe()
-        Maintcounter = self.maintenanceCreate()
-        print("Total Appliances Processed: " + str(len(self.Appliances)))
-        print("Total Dupe Processed: " + str(len(self.dupesdiviceList)))
-        print("Total Maintenances Created: " + str(Maintcounter))
+                    self.flukeList.append(os.path.join(r, file))
 
     
-    def fixDates(self, appliances=None):
-        if appliances is None:
-            appliances = self.Appliances
-        for a in appliances:
-            if(a == 0):
-                continue
-            print(f"Processing appliance {a} for date fix...")
-            try:
-                appliances[a]['date']  =  (datetime.datetime.strptime(appliances[a]['date'], "%d-%b-%y")).strftime("%Y-%m-%d")
-                nextdate = (datetime.datetime.strptime(appliances[a]['date'], "%d-%b-%y") + datetime.timedelta(days=365)).strftime("%Y-%m-%d")
-            except Exception as e:
-                print(f"Error processing date for appliance {a}: {e}")
-                nextdate = str(int(appliances[a]['date'].split('-')[0]) + 1) + "-" + appliances[a]['date'].split('-')[1] + "-" + str(int(appliances[a]['date'].split('-')[2]))
-            appliances[a]['nextdate'] = nextdate
+    def processFiles(self,file_LOC):
+        self.getlistofFiles(file_LOC)
+        if(len(self.flukeList) == 0 and len(self.csvList) == 0):
+            debug("info","No files found in the specified location.")
+            return
+        elif(len(self.flukeList) == 0):
+            debug("info","No Fluke files found, processing CSV files only...")
+            for c in self.csvList:
+                debug("info",f"Processing CSV file: {c}")
+                self.importfromFlukeCSV(c)
+        elif(len(self.csvList) == 0):
+            debug("info","No CSV files found, processing Fluke files only...")
+            for f in self.flukeList:
+                debug("info",f"Processing Fluke file: {f}")
+                self.importfromFluke(f)
+        else:
+            debug("info",f"Found {len(self.flukeList)} Fluke files and {len(self.csvList)} CSV files, processing all files...")
+            for f in self.flukeList:
+                self.importfromFluke(f)
+            for c in self.csvList:
+                self.importfromFlukeCSV(c)
+    def importfromFluke(self, infile):
+        self.divlist += self.fluke.parse(infile) #parse the data from the fluke test file, this will return a list of tests with their results and details. Each test will be a dictionary with the following structure: {'testnum': '1', 'date': '26-Apr-2026', 'appno': '3443', 'testmode': 'PAT', 'site': 'Site 1', 'site1': 'Location 1', 'site2': 'Location 2', 'user': 'User 1', 'des1': '13A EXTENSION', 'loc': 'Location 1', 'visual': 'P', 'tests': {'Earth Continuity': {'limit': '0.1 ohm', 'measurement': '0.05 ohm', 'result': 'P'}, 'Insulation Resistance': {'limit': '> 1 M ohm', 'measurement': '> 1 M ohm', 'result': 'P'}, ...}}
+    def importfromFlukeCSV(self, infile):
+        self.divlist += self.csv.getfromFlukeSoftwere(infile) #parse the data from the fluke test file, this will return a list of tests with their results and details. Each test will be a dictionary with the following structure: {'testnum': '1', 'date': '26-Apr-2026', 'appno': '3443', 'testmode': 'PAT', 'site': '
 
-        return appliances
+
+    def fixdata(self):
+        divlistOut = []
+        for divice in self.divlist:
+            divice['TypeSnipeID'] = 1 #default type is set to 1, this is the ID for the "Unknown" type in snipeIT, if we are able to find a matching type for this appliance we will update this field with the correct type ID, but if we are not able to find a matching type we will leave it as 1 which will allow us to easily identify and update these appliances later when we have more information about them. This also prevents us from creating duplicate types in snipeIT for each unknown type we encounter, which would make it harder to manage and analyze the data in snipeIT.
+            #divice['Type_ID'] = 1 #same as TypeSnipeID, this is used to store the type ID for the appliance, this is the ID that is used to link the appliance to the correct type in snipeIT, if we are not able to find a matching type for this appliance we will leave it as 1 which will allow us to easily identify and update these appliances later when we have more information about them.
+            #Check for des1 in the data
+            #setting the itemtype field to the value of des1 from the fluke test data, this is the field that we will use to try to match the appliance to a type in snipeIT, if we are able to find a matching type in snipeIT for this value we will update the TypeSnipeID and Type_ID fields with the correct type ID from snipeIT, if we are not able to find a matching type in snipeIT for this value we will leave the TypeSnipeID and Type_ID fields as 1 which is the ID for the "Unknown" type in snipeIT, this will allow us to easily identify and update these appliances later when we have more information about them.
+            try:
+                divice['date']  =  (datetime.datetime.strptime(divice['date'], "%d-%b-%y")).strftime("%Y-%m-%d")
+            except Exception as e:
+                debug("error", f"Error processing date for appliance {id}: {e}")
+            divice['nextdate'] = str(int(divice['date'].split('-')[0]) + 1) + "-" + divice['date'].split('-')[1] + "-" + str(int(divice['date'].split('-')[2]))
+            if("Type_ID" in divice):
+                debug("info", "Type found in test data, using value: " + str(divice['Type_ID']))
+
+                if(str(divice['Type_ID']) in self.DiviceTypes):
+                    debug("info", "Type found in DiviceTypes, using value: " + str(self.DiviceTypes[str(divice['Type_ID'])]["name"]))
+                    divice['TypeSnipeName'] = self.DiviceTypes[str(divice['Type_ID'])]["name"]
+                    divice['TypeSnipeID'] = self.DiviceTypes[str(divice['Type_ID'])]["id"]
+                else:
+                    debug("Error", "Type_ID found in test data but not in DiviceTypes for appliance with ID: " + str(divice.get("id", "unknown")) + ", setting to None Data: "+str(divice))
+                    debug("info", "Type not found in DiviceTypes, setting to None")
+                    if(str(divice['Type_ID']) not in self.typeSadList):
+                        self.typeSadList.append(str(divice['Type_ID']))
+                    divice['TypeSnipeName'] = "None"
+                    divice['TypeSnipeID'] = 1
+            else:
+                debug("Error", "Type_ID not found in test data for appliance with ID: " + str(divice.get("id", "unknown")) + ", setting to None Data: "+str(divice))
+                debug("info", "Type not found in test data, setting to None")
+                divice['TypeSnipeName'] = "None"
+                divice['TypeSnipeID'] = 1
+
+                
+            #Location prossing:
+            if(divice['location'] in self.Locations):
+                divice["LocationSnipeID"] = self.Locations[divice['location']]
+            else:
+                divice["LocationSnipeID"] = 1
+
+            if(divice["id"] in self.assets):
+                divice["snipeID"] = self.assets[divice["id"]]["id"]
+            else:
+                divice["snipeID"] = 0
+            divlistOut.append(divice)
+        self.divlist = divlistOut
+        debug("info", f"_______________________________________________________________________________________________")
+        debug("info", f"Finished fixing data, total appliances: {len(self.divlist)}")
+        debug("info", f"Types that were found in test data but not in DiviceTypes: {self.typeSadList}")
+        debug("info", f"_______________________________________________________________________________________________")
+
+
+    def snipeITData(self):
+        self.sendtoSnipe()
+        self.maintenanceCreate()
+        debug("info", "Total Appliances Processed: " + str(len(self.divlist)))
+
+    def sendtoSnipe(self): #this function will loop through the list of appliances and send the data to snipeIT to create or update the assets in snipeIT with the correct details for each appliance, this function will also handle any duplicates or unknown types that are found during the processing of the data, if an appliance is found to be a duplicate (i.e. it has the same ID as an existing asset in snipeIT) it will check if the model matches the model in snipeIT for that asset, if it does not match it will update the model in snipeIT with the correct model for that appliance, if it does match it will skip that appliance and move on to the next one, if an appliance is found to have an unknown type (i.e. it has an TypeSnipeID of 1 which is the ID for the "Unknown" type in snipeIT) it will leave it as is which will allow us to easily identify and update these appliances later when we have more information about them.
+        for i in self.divlist:
+            debug("info", f"Processing appliance {i['id']} for SnipeIT...")
+            if(i['id'] == 0):
+                return 0
+            elif(i['id'] in self.assets):
+                debug("info", f"Appliance {i['id']} already exists in main list, checkin info...")
+                if(i["TypeSnipeID"] != self.assets[i['id']]["model"]):
+                    debug("info", f"Model mismatch for appliance {i['id']}, updating model in SnipeIT...")
+                    data = json.loads(updateAssetModdel(self.snipeITUrl,self.apiKey, i["snipeID"], i["TypeSnipeID"], i['id']))
+                    if(data["status"] == "error"):
+                        debug("error", f"Error updating model for appliance {i['id']} in SnipeIT: {data['messages']} moddel ID: {i['snipeID']} Type ID: {i['TypeSnipeID']}")
+                # Impliment update Pass / Fail and maintance date
+                else:
+                    debug("info", f"Model match for appliance {i['id']}, no update needed...")
+            else:
+                debug("info", f"Appliance {i['id']} not found in main list, processing for SnipeIT...")
+                data = json.loads(createAsset(self.snipeITUrl, self.apiKey, i, i['id']))
+                if(data["status"] == "error"):
+                    debug("error", f"Error creating appliance {i['id']} in SnipeIT: {data['messages']} moddel ID: {i['snipeID']} Type ID: {i['TypeSnipeID']}")
+                else:
+                    self.assets[i['id']] = {'id': data["payload"]["id"], 'model': i['TypeSnipeID'], 'next_audit_date': i['nextdate'], 'last_audit_date': i['date']}
+    def maintenanceCreate(self):
+        debug("info", f"Creating maintenance for appliances...")
+        #CreateMatinance(self.divlist,self.snipeITUrl,self.apiKey)
+        for i in self.divlist:
+            debug("info", f"-----------\nWorking on {i['id']}: ")
+            outData = ""
+            divice = i
+            if(i["id"] in self.assets):
+                if(self.assets[i["id"]]["last_audit_date"] == "None" or self.assets[i["id"]]["last_audit_date"] == None):
+                    debug("info", f"Appliance {i['id']} has no last audit date in SnipeIT, updating last audit date in SnipeIT...")
+                    updateAsset_PandD(self.snipeITUrl,self.apiKey, i["snipeID"], divice["OverallResult"], divice["nextdate"], divice['date'])
+                elif(divice["date"] > self.assets[i["id"]]["last_audit_date"]):
+                    debug("info", f"Appliance {i['id']} has a next audit date that is later than the one in SnipeIT, updating next audit date in SnipeIT...")
+                    updateAsset_PandD(self.snipeITUrl,self.apiKey, i["snipeID"], divice["OverallResult"], divice["nextdate"], divice['date'])
+
+            if(divice["OverallResult"] == "Not In Use"):
+                debug("info", f"Asset {i['id']} is not in use, skipping...")
+                continue
+            outData += json.dumps(divice["Result"], indent=4, separators=(',', ':'))
+            debug("info", f"Updating Snipe-IT ID: {i['id']} and date: {divice['date']} with the following data:\n{outData}")
+            
+            Update(i["id"], i["snipeID"], outData, divice["date"],self.snipeITUrl,self.apiKey)
+    
     def exporttoCSV(self, outfile="Output.csv"):
 
         #Asset Tag,Model Name,Next Audit Date,PatTest_Result,Location
         output = "Asset Tag,Item Name,Model Name,Next Audit Date,PatTest_Result,Location\n"
-        for a in self.Appliances:
+        for a in self.divlist:
             if(a == 0):
                 continue
-            print(f"Processing appliance {a} for export...")
-            output += f"{a},{a},{self.Appliances[a]['itemtype']},{self.Appliances[a]['nextdate']},{self.Appliances[a]['OverallResult']},{self.Appliances[a]['location']}\n"
+            debug("info", f"Processing appliance {a['id']} for export...")
+            output += f"{a['id']},{a['name']},{a['itemtype']},{a['nextdate']},{a['OverallResult']},{a['location']}\n"
 
         with open(outfile, "w") as f:
             f.write(output)
 
-#### Import CSV to SnipeIT
-    def sendtosnipe(self, infile="Output.csv"):
-        for a in self.Appliances:
-            if(a == 0):
-                continue
-            print(f"Processing appliance {a} for SnipeIT...")
-            self.snipeassetSend(a)
-    
-    def snipeassetSend(self,a, retry=0):
-        try:
-            if(self.assets[a] != None):
-                print(f"Appliance {a} already exists in SnipeIT with ID {self.assets[str(a)]['id']}, skipping...")
-                if(self.assets[str(a)]['model'] != self.Appliances[str(a)]['itemtype_ID']):
-                    print(f"Model mismatch for appliance {a}, updating model in SnipeIT...")
-                    print(updateAssetModdel(self.snipeITUrl,self.apiKey, self.assets[str(a)]['id'], self.Appliances[str(a)]['itemtype_ID'], a))
-                return 1
-        except KeyError:
-            
-            print(f"Appliance {a} not found in SnipeIT, creating new entry...")
-            print(type(a))
-            data = json.loads(createAsset(self.snipeITUrl, self.apiKey, self.Appliances[a], a))
-            print(f"Response from SnipeIT for appliance {a}: {data}")
-            if(data["status"] == "error"):
-                print(f"Error creating appliance {a} in SnipeIT: {data['messages']} moddel ID: {self.Appliances[a]['itemtype_ID']}")
-                #input("Press enter to continue try again...")
-                retry += 1
-                if(retry < 3):
-                    return 3
-                else:
-                    self.snipeassetSend(a, retry)
-                return 3
-            return 2
-        
-    def maintenanceCreate(self):
-        from SnipeAsset.Update import update_SnipeIT
-        Maintcounter = 0
-        print(f"Creating maintenance for appliances...")
-        Maintcounter = update_SnipeIT(self.Appliances, self.testtypes,self.snipeITUrl,self.apiKey)
-        # Skip maintenance for duplicates to avoid duplicate data
-        # Maintcounter += update_SnipeIT(self.dupesdiviceList, self.testtypes,self.snipeITUrl,self.apiKey)
-        return Maintcounter
+    # Import CSV to SnipeIT

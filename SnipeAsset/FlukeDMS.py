@@ -7,7 +7,7 @@
 
 from modulefinder import test
 import re
-
+from SnipeAsset.debuger import debug
 tester = None
 serial = None
 
@@ -23,29 +23,33 @@ class flukeTest:
       self.serial = re.findall("SN *(.*) *?", self.ls[2])[0]
       self.testdata = ''.join(self.ls[4:-2])
       self.testdata = self.testdata.split('\n\n')
-      print(f"Found {len(self.testdata)} tests.")
+      debug("info",f"Found {len(self.testdata)} tests.")
       for self.test in self.testdata:
         self.test = [l.rstrip() for l in self.test.split('\n')]
         try:
-          self.data = self.parsetest(self.test)
+          self.data = self.parsetest(self.test,fielename)
           
         except Exception as e:
-          print("---")
-          print("ERROR: malformed entry. Unable to parse test.")
-          print(e)
-          print(self.test)
+          debug("Error","---")
+          debug("Error","ERROR: malformed entry. Unable to parse test.")
+          debug("Error",e)
+          debug("Error",self.test)
+          debug("Error","---")
+
         if self.data:
-          #print(self.data)
+          #debug("info",self.data)
           self.outdata.append(self.data)
     return self.outdata
-  def parsetest(self, test, obj = None):
-    #print(obj)
+  def parsetest(self, test,fielename, obj = None,):
+    overpass = True
+    #debug("info",obj)
     if obj == None:
       obj = {
-        'tests': {}
+        'Result': {},
+        'file': fielename
       }
-    #print(len(test))
-    #print(test)
+    #debug("info",len(test))
+    #debug("info",test)
     while len(test) > 0:
       # handle each possible data block:
       if 'TEST NUMBER' in test[0]:
@@ -57,7 +61,7 @@ class flukeTest:
         test = test[1:]
       
       elif 'APP NO' in test[0]:
-        obj['appno'] = str(int(re.findall(r'APP NO +([a-zA-Z0-9]+)\s*', test[0])[0]))
+        obj['id'] = str(int(re.findall(r'APP NO +([a-zA-Z0-9]+)\s*', test[0])[0]))
         test = test[1:]
       
       elif 'TEST MODE' in test[0]:
@@ -72,10 +76,13 @@ class flukeTest:
       
       elif 'USER' in test[0]:
         obj['user'] = re.findall(r'USER *(.*)', test[0])[0]
+        obj["Result"]["user"] = obj['user']
         test = test[1:]
       
       elif 'VISUAL CHECK' in test[0]:
-        obj['visual'] = re.findall(r'VISUAL CHECK *([PF])', test[0])[0]
+        obj["Result"]['visual'] = re.findall(r'VISUAL CHECK *([PF])', test[0])[0]
+        if(obj["Result"]['visual'] != "P"):
+          overpass = False
         test = test[1:]
 
       elif 'LEAD CONTINUITY' in test[0]:
@@ -85,28 +92,30 @@ class flukeTest:
         t['earth'] = ex[0][0]
         t['earthpass'] = ex[0][1]
         t['earthlimit'] = re.findall(r'LIMIT *(.*)', test[2])[0]
-        obj['tests']['iectest'] = t
+        obj['Result']['iectest'] = t
+        if(t['continuity'] != "P" or t['earthpass'] != "P"):
+          overpass = False
         test = test[3:]
       
       elif 'INS' in test[0]:
         # for some reason my tester adds an extra entry for insulation tests
         if 'INS 1' in test[1]:
-          obj['tests']['ins1'] = {'testvoltage': re.findall(r'INS *(.*)', test[1])[0]}
+          obj['Result']['ins1'] = {'testvoltage': re.findall(r'INS *(.*)', test[1])[0]}
         elif 'INS 2' in test[1]:
-          obj['tests']['ins2'] = {'testvoltage': re.findall(r'INS *(.*)', test[1])[0]}
+          obj['Result']['ins2'] = {'testvoltage': re.findall(r'INS *(.*)', test[1])[0]}
         test = test[1:]
 
       elif 'INS 1' in test[0]:
-        #print("Parsing INS 1")
+        #debug("info","Parsing INS 1")
         ex = re.findall(r'INS 1 *(.*?) *([PF])', test[0])
         t = {}
         t['res'] = ex[0][0]
         t['pass'] = ex[0][1]
         t['limit'] = re.findall(r'LIMIT *(.*)', test[1])[0]
-        if 'ins1' in obj['tests']:
-          t['testvoltage'] = obj['tests']['ins1']['testvoltage']
-        obj['tests']['ins1'] = t
-        #print(obj)
+        if 'ins1' in obj['Result']:
+          t['testvoltage'] = obj['Result']['ins1']['testvoltage']
+        obj['Result']['ins1'] = t
+        #debug("info",obj)
         test = test[2:]
 
       elif 'INS 2' in test[0]:
@@ -115,9 +124,9 @@ class flukeTest:
         t['res'] = ex[0][0]
         t['pass'] = ex[0][1]
         t['limit'] = re.findall(r'LIMIT *(.*)', test[1])[0]
-        if 'ins2' in obj['tests']:
-          t['testvoltage'] = obj['tests']['ins2']['testvoltage']
-        obj['tests']['ins2'] = t
+        if 'ins2' in obj['Result']:
+          t['testvoltage'] = obj['Result']['ins2']['testvoltage']
+        obj['Result']['ins2'] = t
         test = test[2:]
       
       elif 'PN CONTINUITY' in test[0]:
@@ -128,8 +137,10 @@ class flukeTest:
           t['pass'] = ex[0][1]
           t['limit'] = re.findall(r'LIMIT *(.*)', test[2])[0]
           t['pncontinuity'] = re.findall(r'PN CONTINUITY *([PF])', test[0])[0]
-          obj['tests']['touch'] = t
+          obj['Result']['touch'] = t
           test = test[3:]
+          if(t['pass'] != "P" or t['pncontinuity'] != "P"):
+            overpass = False
         elif 'LOAD' in test[1]:
           ex = re.findall(r'LOAD *(.*?) *([PF])', test[1])
           t = {}
@@ -137,8 +148,10 @@ class flukeTest:
           t['pass'] = ex[0][1]
           t['limit'] = re.findall(r'LIMIT *(.*)', test[2])[0]
           t['pncontinuity'] = re.findall(r'PN CONTINUITY *([PF])', test[0])[0]
-          obj['tests']['load'] =  t
+          obj['Result']['load'] =  t
           test = test[3:]
+          if(t['pass'] != "P" or t['pncontinuity'] != "P"):
+            overpass = False
 
       elif 'CURRENT' in test[0]:
         ex = re.findall(r'CURRENT *(.*?) *([PF])', test[0])
@@ -146,8 +159,10 @@ class flukeTest:
         t['current'] = ex[0][0]
         t['pass'] = ex[0][1]
         t['limit'] = re.findall(r'LIMIT *(.*)', test[1])[0]
-        obj['tests']['current'] = t
+        obj['Result']['current'] = t
         test = test[2:]
+        if(t['pass'] != "P"):
+          overpass = False
       
       elif 'LKGE' in test[0]:
         ex = re.findall(r'LKGE *(.*?) *([PF])', test[0])
@@ -155,8 +170,10 @@ class flukeTest:
         t['current'] = ex[0][0]
         t['pass'] = ex[0][1]
         t['limit'] = re.findall(r'LIMIT *(.*)', test[1])[0]
-        obj['tests']['leakage'] = t
+        obj['Result']['leakage'] = t
         test = test[2:]
+        if(t['pass'] != "P"):
+          overpass = False
       
       elif 'BOND RANGE' in test[0]:
         t = {}
@@ -165,8 +182,10 @@ class flukeTest:
         t['resistance'] = ex[0][0]
         t['pass'] = ex[0][1]
         t['limit'] = re.findall(r'LIMIT *(.*)', test[2])[0]
-        obj['tests']['earthbond'] = t
+        obj['Result']['earthbond'] = t
         test = test[3:]
+        if(t['pass'] != "P"):
+          overpass = False
       
       elif 'SUBST 1' in test[0]:
         ex = re.findall(r'SUBST 1 *(.*?) *([PF])', test[0])
@@ -174,8 +193,10 @@ class flukeTest:
         t['current'] = ex[0][0]
         t['pass'] = ex[0][1]
         t['limit'] = re.findall(r'LIMIT *(.*)', test[1])[0]
-        obj['tests']['subst1'] = t
+        obj['Result']['subst1'] = t
         test = test[2:]
+        if(t['pass'] != "P"):
+          overpass = False
       
       elif 'SUBST 2' in test[0]:
         ex = re.findall(r'SUBST 2 *(.*?) *([PF])', test[0])
@@ -183,23 +204,27 @@ class flukeTest:
         t['current'] = ex[0][0]
         t['pass'] = ex[0][1]
         t['limit'] = re.findall(r'LIMIT *(.*)', test[1])[0]
-        obj['tests']['subst2'] = t
+        obj['Result']['subst2'] = t
         test = test[2:]
+        if(t['pass'] != "P"):
+          overpass = False
       
       elif 'PROBE PELV' in test[0]:
         ex = re.findall(r'PROBE PELV *([PF])', test[0])
         t = {}
         t['pass'] = ex[0]
         t['currentlimit'] = re.findall(r'LIMIT *(.*)', test[1])[0]
-        obj['tests']['probepelv'] = t
+        obj['Result']['probepelv'] = t
         test = test[2:]
+        if(t['pass'] != "P"):
+          overpass = False
 
       elif 'LOC1' in test[0]:
-        obj['loc'] = re.findall(r'LOC1 *(.*)', test[0])[0] + re.findall(r'LOC2 *(.*)', test[1])[0]
+        obj['location'] = re.findall(r'LOC1 *(.*)', test[0])[0] + re.findall(r'LOC2 *(.*)', test[1])[0]
         test = test[2:]
       
       elif 'DES1' in test[0]:
-        obj['des1'] = re.findall(r'DES1 *(.*)', test[0])[0]
+        obj['Type_ID'] = re.findall(r'DES1 *(.*)', test[0])[0]
         obj['des2'] = re.findall(r'DES2 *(.*)', test[1])[0]
         obj['des3'] = re.findall(r'DES3 *(.*)', test[2])[0]
         test = test[3:]
@@ -210,15 +235,16 @@ class flukeTest:
 
       else:
         # unknown entry type, skip this line?
-        #print("-----")
-        #print("Unknown entry type, skipping line:")
+        #debug("info","-----")
+        #debug("info","Unknown entry type, skipping line:")
         
-        #print(test)
-        #print(obj)
+        #debug("info",test)
+        #debug("info",obj)
         test = test[1:]
+      if(overpass == False):
+        obj['OverallResult'] = "Fail"
+      else:
+        obj['OverallResult'] = "Pass"
     if len(test) == 0:
-      #print("Returing obj")
+      #debug("info","Returing obj")
       return obj
-
-
-
