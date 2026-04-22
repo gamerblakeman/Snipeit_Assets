@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
+from Fix_Moddles import URI, Key
 from SnipeAsset.FlukeDMS import flukeTest
 from SnipeAsset.FlukeCSV import FlukeCSV
-from SnipeAsset.Update import createAsset, getDetailsByTag, getDetailsByTagOLD, pullAssetLarge, pullLocations, pullModel, updateAsset_PandD, updateAssetModdel,Update
+from SnipeAsset.Update import createAsset, getDetailsByTag, getDetailsByTagOLD, pullAssetLarge, pullLocations, pullModel, updateAsset_PandD, updateAssetModdel,Update, updateModel
 import json
 import datetime
 import re
@@ -196,6 +197,8 @@ class SnipeITAsset:
         self.sendtoSnipe()
         self.maintenanceCreate()
         debug("info", "Total Appliances Processed: " + str(len(self.divlist)))
+    def fixmodel(self, model, id):
+        updateModel(self.snipeITUrl, self.apiKey, model["id"], id, model['name'], model['catNo'])
 
     def sendtoSnipe(self): #this function will loop through the list of appliances and send the data to snipeIT to create or update the assets in snipeIT with the correct details for each appliance, this function will also handle any duplicates or unknown types that are found during the processing of the data, if an appliance is found to be a duplicate (i.e. it has the same ID as an existing asset in snipeIT) it will check if the model matches the model in snipeIT for that asset, if it does not match it will update the model in snipeIT with the correct model for that appliance, if it does match it will skip that appliance and move on to the next one, if an appliance is found to have an unknown type (i.e. it has an TypeSnipeID of 1 which is the ID for the "Unknown" type in snipeIT) it will leave it as is which will allow us to easily identify and update these appliances later when we have more information about them.
         for i in self.divlist:
@@ -216,14 +219,35 @@ class SnipeITAsset:
                 debug("info", f"Appliance {i['id']} not found in main list, processing for SnipeIT...")
                 data = json.loads(createAsset(self.snipeITUrl, self.apiKey, i, i['id']))
                 if(data["status"] == "error"):
-                    debug("error", f"Error creating appliance {i['id']} in SnipeIT: {data['messages']} moddel ID: {i['snipeID']} Type ID: {i['TypeSnipeID']}")
+                    debug("error", f"Error creating appliance {i['id']} in SnipeIT: {data['messages']}, ID: {i['snipeID']} Type ID: {i['TypeSnipeID']}")
+                    if('_snipeit_pattest_result_2' in data['messages']):
+                        if(data['messages']['_snipeit_pattest_result_2'][0] == "This field seems to exist, but is not available on this Asset Model's fieldset."):
+                            debug("info", f"Error creating appliance {i['id']} in SnipeIT is likely due to a missing or misconfigured PatTest_Result custom field for the model attempting to fix.")
+                            self.fixmodel(self.DiviceTypes[i['Type_ID']], i['Type_ID'])
+                            data = json.loads(createAsset(self.snipeITUrl, self.apiKey, i, i['id']))
+                            if(data["status"] == "error"):
+                                debug("error", f"Error creating appliance {i['id']} in SnipeIT after attempting to fix model: {data['messages']}, ID: {i['snipeID']} Type ID: {i['TypeSnipeID']}")
+                                raise Exception(f"Error creating appliance {i['id']} in SnipeIT after attempting to fix model: {data['messages']}, ID: {i['snipeID']} Type ID: {i['TypeSnipeID']}") 
+                            else:
+                                debug("info", f"Appliance {i['id']} created in SnipeIT with ID: {data['payload']['id']} and model ID: {i['TypeSnipeID']} after fixing model.")
+                                debug("debug", f"Appliance {i['id']} data: {data}")
+                                self.assets[i['id']] = {'id': data["payload"]["id"], 'model': i['TypeSnipeID'], 'next_audit_date': i['nextdate'], 'last_audit_date': i['date']}
+                        else:
+                            debug("error", f"Error creating appliance {i['id']} in SnipeIT is likely due to an invalid PatTest_Result value, please check the value for appliance {i['id']} and update it to a valid value (e.g. Pass, Fail, Not In Use) and try again.")
                 else:
+                    debug("info", f"Appliance {i['id']} created in SnipeIT with ID: {data['payload']['id']} and model ID: {i['TypeSnipeID']}")
+                    debug("debug", f"Appliance {i['id']} data: {data}")
                     self.assets[i['id']] = {'id': data["payload"]["id"], 'model': i['TypeSnipeID'], 'next_audit_date': i['nextdate'], 'last_audit_date': i['date']}
     def maintenanceCreate(self):
         debug("info", f"Creating maintenance for appliances...")
         #CreateMatinance(self.divlist,self.snipeITUrl,self.apiKey)
         for i in self.divlist:
             debug("info", f"-----------\nWorking on {i['id']}: ")
+            if(i["snipeID"] == 0):
+                debug("info", f"Appliance {i['id']} has no SnipeIT ID, skipping maintenance creation...")
+                i["snipeID"] = self.assets[i["id"]]["id"]
+                debug("info", f"Appliance {i['id']} SnipeIT ID updated to {i['snipeID']} for maintenance creation...")
+                
             outData = ""
             divice = i
             if(i["id"] in self.assets):
@@ -238,8 +262,7 @@ class SnipeITAsset:
                 debug("info", f"Asset {i['id']} is not in use, skipping...")
                 continue
             outData += json.dumps(divice["Result"], indent=4, separators=(',', ':'))
-            debug("info", f"Updating Snipe-IT ID: {i['id']} and date: {divice['date']} with the following data:\n{outData}")
-            
+            debug("info", f"Updating Snipe-IT, ID: {i['id']}, Snipe ID: {i['snipeID']}, and date: {divice['date']} with the following data:\n{outData}")
             Update(i["id"], i["snipeID"], outData, divice["date"],self.snipeITUrl,self.apiKey)
     
     def exporttoCSV(self, outfile="Output.csv"):
