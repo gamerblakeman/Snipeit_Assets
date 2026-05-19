@@ -1,7 +1,7 @@
-SnipeAssets/__pycache__/
+SnipeAssets/__pycache__/*
 Test*.py
 files/
-__pycache__/
+__pycache__/*
 debug.txt
 error.txt
 info.txt
