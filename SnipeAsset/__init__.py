@@ -1,14 +1,13 @@
 # -*- coding: utf-8 -*-
-from Fix_Moddles import URI, Key
 from SnipeAsset.FlukeDMS import flukeTest
 from SnipeAsset.FlukeCSV import FlukeCSV
-from SnipeAsset.Update import createAsset, getDetailsByTag, getDetailsByTagOLD, pullAssetLarge, pullLocations, pullModel, updateAsset_PandD, updateAssetModdel,Update, updateModel
+from SnipeAsset.Update import createAsset, getDetailsByTag, getDetailsByTagOLD, pullAssetLarge, pullLocations, pullModel, updateAsset_PandD, updateAssetModdel,Update, updateModel, createModel
 import json
 import datetime
 import re
 import csv
 import html
-from SnipeAsset.debuger import debug
+from SnipeAsset.debuger import debug, logBroken
 
 #{"id":7816,"name":"3443","asset_tag":"3443","serial":"","model":{"id":203,
 
@@ -166,11 +165,22 @@ class SnipeITAsset:
                     debug("info", "Type not found in DiviceTypes, setting to None")
                     if(str(divice['Type_ID']) not in self.typeSadList):
                         self.typeSadList.append(str(divice['Type_ID']))
-                    divice['TypeSnipeName'] = "None"
-                    divice['TypeSnipeID'] = 1
+                    dataout = json.loads(createModel(self.snipeITUrl, self.apiKey, divice['Type_ID'], "Unknown-" +str(divice['Type_ID'])))
+                    if(dataout["status"] == "error"):
+                        logBroken("Model Creation Failed", divice['Type_ID']+':'+divice['id'], dataout['messages'])
+                        debug("error", f"Error creating model for Type_ID {divice['Type_ID']} in SnipeIT: {dataout['messages']}, ID: {divice['Type_ID']}")
+                        debug("info", f"Model for Type_ID {divice['Type_ID']} likely already exists in SnipeIT")
+                        divice['TypeSnipeName'] = "None"
+                        divice['TypeSnipeID'] = 1
+                        divice['TypeError'] = divice['Type_ID']
+                    else:
+                        debug("info", f"Model for Type_ID {divice['Type_ID']} created successfully in SnipeIT with ID: {dataout['rows']['id']}")
+                        divice['TypeSnipeName'] = divice['Type_ID']
+                        divice['TypeSnipeID'] = dataout['payload']['id']
             else:
                 debug("Error", "Type_ID not found in test data for appliance with ID: " + str(divice.get("id", "unknown")) + ", setting to None Data: "+str(divice))
                 debug("info", "Type not found in test data, setting to None")
+                logBroken("Model Creation Failed", divice['Type_ID']+':'+divice['id'], "No type ID found in test data"+str(divice))
                 divice['TypeSnipeName'] = "None"
                 divice['TypeSnipeID'] = 1
 
@@ -207,7 +217,7 @@ class SnipeITAsset:
                 return 0
             elif(i['id'] in self.assets):
                 debug("info", f"Appliance {i['id']} already exists in main list, checkin info...")
-                if(i["TypeSnipeID"] != self.assets[i['id']]["model"]):
+                if(i["TypeSnipeID"] != self.assets[i['id']]["model"] and i["TypeSnipeID"] != 1):
                     debug("info", f"Model mismatch for appliance {i['id']}, updating model in SnipeIT...")
                     data = json.loads(updateAssetModdel(self.snipeITUrl,self.apiKey, i["snipeID"], i["TypeSnipeID"], i['id']))
                     if(data["status"] == "error"):

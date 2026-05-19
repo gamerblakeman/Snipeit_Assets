@@ -165,12 +165,13 @@ def getDetailsByTag(server, token, AssetTag):
 
         return results
 
-def createModel(server, token, id, Name):
+def createModel(server, token,Model, Name):
         
         payload = {
             "name": Name,
-            "model_number": id,
+            "model_number": str(Model),
             "category_id": 2,
+            "fieldset_id": 2
         }
         """Create new model data.
         

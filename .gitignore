@@ -1,0 +1,8 @@
+SnipeAssets/__pycache__/
+Test*.py
+files/
+__pycache__/
+debug.txt
+error.txt
+info.txt
+*.pyc
