@@ -254,6 +254,7 @@ def updateAsset_PandD(server, token, id, passed, Last_audit_date, date):
         requestcounterUp()
         return json.dumps(results.json(),indent=4, separators=(',', ':'))
 
+
 def createAsset(server, token, Divice, ID):
         
         payload = {
@@ -268,9 +269,9 @@ def createAsset(server, token, Divice, ID):
             "status_id": 2,
             "model_id": Divice["TypeSnipeID"],
             "name": ID,
-            "last_audit_date": Divice["date"],
-            "next_audit_date": Divice["nextdate"],
-            "_snipeit_pattest_result_2" : Divice["OverallResult"]
+            #"last_audit_date": Divice["date"],
+            #"next_audit_date": Divice["nextdate"],
+            #"_snipeit_pattest_result_2" : Divice["OverallResult"]
         }
         debug("debug", f"Creating asset with payload: {payload}")
         """Create new asset data
@@ -336,7 +337,7 @@ def auditAsse123t(server, token, assetTag):
             return results.content
         #return json.dumps(results.json(),indent=4, separators=(',', ':'))
 
-def auditAsset(server, token, assetTag=None, locationID=None):
+def auditAsset(server, token, assetTag=None, locationID=None, next_audit_date=None, result=None, notes=None):
         
         """Audit an asset
         
@@ -349,11 +350,12 @@ def auditAsset(server, token, assetTag=None, locationID=None):
             locationID {[type]} -- location ID to be audited (default: {None})
         """
         uri = '/api/v1/hardware/audit'
-        payload  = {'asset_tag':assetTag, 'location_id':locationID}
+        payload  = {'asset_tag':assetTag, 'location_id':locationID, "next_audit_date": next_audit_date, "_snipeit_pattest_result_2": result,"note":notes}
         server = server + uri
         headers = {'Content-Type': 'application/json','Authorization': 'Bearer {0}'.format(token)}
         # send JSON payload, otherwise requests will form‑encode it which the API rejects
         results = postRequest(server, headers, payload)
+        requestcounterUp()
         if(results.json().get("status") == "error"):
             print("Error creating maintenance: " + str(results.json().get("messages")))
             raise Exception("Error creating maintenance: " + str(results.json().get("messages")))

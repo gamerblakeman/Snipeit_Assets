@@ -26,6 +26,6 @@ def debug(label, data, level = debuglevel):
         print(f"{label}: {data}")
 def logBroken(reason, ID, messgae):
     with open(brokenFile, 'a', newline='') as csvfile:
-        fieldnames = ['Type_ID', 'Error']
+        fieldnames = ['Broken', 'ID', 'Error']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writerow({'Broken': reason, 'ID': ID, 'Error': messgae})

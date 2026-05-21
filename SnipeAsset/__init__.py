@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from SnipeAsset.FlukeDMS import flukeTest
 from SnipeAsset.FlukeCSV import FlukeCSV
-from SnipeAsset.Update import createAsset, getDetailsByTag, getDetailsByTagOLD, pullAssetLarge, pullLocations, pullModel, updateAsset_PandD, updateAssetModdel,Update, updateModel, createModel
+from SnipeAsset.Update import auditAsset, createAsset, getDetailsByTag, getDetailsByTagOLD, pullAssetLarge, pullLocations, pullModel, updateAsset_PandD, updateAssetModdel,Update, updateModel, createModel
 import json
 import datetime
 import re
@@ -174,13 +174,13 @@ class SnipeITAsset:
                         divice['TypeSnipeID'] = 1
                         divice['TypeError'] = divice['Type_ID']
                     else:
-                        debug("info", f"Model for Type_ID {divice['Type_ID']} created successfully in SnipeIT with ID: {dataout['rows']['id']}")
+                        debug("info", f"Model for Type_ID {divice['Type_ID']} created successfully in SnipeIT with ID: {dataout['payload']['id']}")
                         divice['TypeSnipeName'] = divice['Type_ID']
                         divice['TypeSnipeID'] = dataout['payload']['id']
             else:
                 debug("Error", "Type_ID not found in test data for appliance with ID: " + str(divice.get("id", "unknown")) + ", setting to None Data: "+str(divice))
                 debug("info", "Type not found in test data, setting to None")
-                logBroken("Model Creation Failed", divice['Type_ID']+':'+divice['id'], "No type ID found in test data"+str(divice))
+                logBroken("No Model Data Found", divice['id'], "No type ID found in test data"+str(divice))
                 divice['TypeSnipeName'] = "None"
                 divice['TypeSnipeID'] = 1
 
@@ -225,6 +225,7 @@ class SnipeITAsset:
                 # Impliment update Pass / Fail and maintance date
                 else:
                     debug("info", f"Model match for appliance {i['id']}, no update needed...")
+                    #fix audit dates and pass fail info if needed
             else:
                 debug("info", f"Appliance {i['id']} not found in main list, processing for SnipeIT...")
                 data = json.loads(createAsset(self.snipeITUrl, self.apiKey, i, i['id']))
@@ -248,6 +249,7 @@ class SnipeITAsset:
                     debug("info", f"Appliance {i['id']} created in SnipeIT with ID: {data['payload']['id']} and model ID: {i['TypeSnipeID']}")
                     debug("debug", f"Appliance {i['id']} data: {data}")
                     self.assets[i['id']] = {'id': data["payload"]["id"], 'model': i['TypeSnipeID'], 'next_audit_date': i['nextdate'], 'last_audit_date': i['date']}
+            auditAsset(self.snipeITUrl, self.apiKey, assetTag=i['id'], locationID=i["LocationSnipeID"], next_audit_date=i['nextdate'], result=i['OverallResult'], notes='{"Testdate": "'+i['date']+'","User": "'+i["Result"]["user"]+'","File": "'+i["file"]+'"}')
     def maintenanceCreate(self):
         debug("info", f"Creating maintenance for appliances...")
         #CreateMatinance(self.divlist,self.snipeITUrl,self.apiKey)
